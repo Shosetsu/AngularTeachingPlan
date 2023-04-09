@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DataService } from '@app/shared/data.service';
 import { ModalService } from '@app/shared/modal.service';
 
 @Component({
@@ -25,7 +26,8 @@ export class ModalComponent implements OnInit, AfterViewChecked {
   constructor(
     private ds: DomSanitizer,
     private modal: ModalService,
-    private render: Renderer2
+    private render: Renderer2,
+    private data: DataService
   ) {}
 
   ngOnInit(): void {
@@ -42,17 +44,18 @@ export class ModalComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked(): void {
     if (this.el) {
-      const [height, width] = (
-        localStorage['modal.size'] ?? '600px,1000px'
-      ).split(',');
+      const [height, width] = this.data
+        .getData<string>('modal.size', '600px,1000px')
+        .split(',');
       this.render.setStyle(this.el.nativeElement, 'height', height);
       this.render.setStyle(this.el.nativeElement, 'width', width);
     }
   }
 
   memoSize(): void {
-    localStorage[
-      'modal.size'
-    ] = `${this.el?.nativeElement.style.height},${this.el?.nativeElement.style.width}`;
+    this.data.setData(
+      'modal.size',
+      `${this.el?.nativeElement.style.height},${this.el?.nativeElement.style.width}`
+    );
   }
 }

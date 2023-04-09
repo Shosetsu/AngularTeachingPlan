@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CourseService {
-  private completedList: Record<string, number> = JSON.parse(
-    localStorage.getItem('courseStatus') ?? '{}'
+  constructor(private data: DataService) {}
+
+  private completedList = this.data.getData<Record<string, number>>(
+    'courseStatus',
+    {}
   );
 
   isCompleted(key: string): boolean {
@@ -15,6 +19,6 @@ export class CourseService {
   changeKey(key: string): void {
     this.completedList[key] = this.isCompleted(key) ? 0 : 1;
 
-    localStorage.setItem('courseStatus', JSON.stringify(this.completedList));
+    this.data.setData('courseStatus', this.completedList);
   }
 }
