@@ -19,11 +19,11 @@
         <app-code-sample code="ng version"></app-code-sample>
       </p>
       <p>
-        同理，也可以使用下面的命令来更新Angular CLI。<br />
+        同理，也可以使用下面的命令使用NPM来更新Angular CLI。<br />
         <app-code-sample code="npm update -g @angular/cil"></app-code-sample>
       </p>
       <p>
-        大版本更新时可能需要做出额外操作才能顺利更新Angular CLI，<br />可参考：
+        大版本更新时可能需要做出额外操作才能顺利更新Angular CLI，<br />可参考文档：
         <button
           libCheck="2"
           (click)="openLink('https://update.angular.io/?v=14.0-15.0')"
@@ -47,8 +47,8 @@
         <app-code-sample code="ng serve"></app-code-sample>
       </p>
       <p>
-        和<code>ng s</code>相似的命令是<code>ng build</code>。<br />
-        构建完成后的静态资源将会被保存在编译配置中预设的地方，或在命令行中指定。<br />
+        和<code>ng serve</code>相似的命令是<code>ng build</code>。<br />
+        它可以构建指定的工程，构建完成后的静态资源将会被保存在预设的地方，或通过添加命令行参数进行指定。<br />
         <app-code-sample code="ng b"></app-code-sample>
         <app-code-sample code="ng build"></app-code-sample>
       </p>
@@ -63,7 +63,8 @@
         >
           可生成的对象一览</button
         ><br />
-        尝试一下，但要注意要适当的贴合当前目录。
+        尝试一下，但要注意要适当的贴合当前目录。<br />
+        部分重要但又缺失的命令行参数将会在命令执行后通过问答的形式要求输入。
       </p>
       <p class="detail">
         使用它在当前目录下生成一个<服务>，并命名为SampleEx1Service<br />

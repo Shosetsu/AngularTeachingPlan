@@ -1,7 +1,12 @@
 <app-course>
   <div libThrough>
     <div>
-      <p class="title">Angular中，通常拥有以下数个类型的文件。</p>
+      <p class="title">
+        Angular中，通常拥有以下数个类型的文件。
+        <button (click)="openLink('https://angular.cn/guide/cheatsheet')">
+          Angular速查表
+        </button>
+      </p>
       <ul>
         <li>
           模组（Module）<br />
@@ -151,10 +156,7 @@
               /project/<code>XXXX</code>/src/app/service/
               放置业务内部使用的局部共通服务
             </li>
-            <li>
-              /project/<code>XXXX</code>/src/app/app.module
-              定义这个模组
-            </li>
+            <li>/project/<code>XXXX</code>/src/app/app.module 定义这个模组</li>
             <li>
               /project/<code>XXXX</code>/src/app/app-routing.module
               定义这个模组的路由
