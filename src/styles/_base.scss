@@ -47,11 +47,12 @@ button {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
 
   user-select: none;
-
   cursor: pointer;
+
   &:hover {
     opacity: 0.85;
   }
+
   &.non-complete {
     background: #fbdfdc;
   }

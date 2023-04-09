@@ -104,6 +104,7 @@ section {
     &.focus {
       background-color: #f9cdc8aa;
     }
+
     &.completed {
       &::after {
         content: "";
