@@ -21,6 +21,27 @@ section {
   h1 {
     cursor: pointer;
   }
+
+  .github {
+    height: 3rem;
+    width: 3rem;
+    margin-left: auto;
+    margin-right: 2rem;
+    cursor: pointer;
+
+    transition: all 0.5s linear;
+
+    background-color: #fff;
+    background: url("^assets/svg/github-mark.svg") center no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+
+    &:hover {
+      background-color: #000;
+      background-image: url("^assets/svg/github-mark-white.svg");
+    }
+  }
 }
 
 .menu-list {
