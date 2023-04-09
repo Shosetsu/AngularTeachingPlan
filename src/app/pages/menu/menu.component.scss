@@ -61,6 +61,8 @@ section {
     font-size: 1.6rem;
     cursor: default;
 
+    transition: all 0.75s ease-in-out;
+
     .course-title {
       font-size: 2.4rem;
       border-bottom: 1px solid#5a5a5a;
@@ -93,6 +95,7 @@ section {
     padding: 0.5rem 1em;
     position: relative;
     border-radius: 1rem;
+    transition: all 0.5s ease-in-out;
 
     &:hover {
       background-color: #fff7;
