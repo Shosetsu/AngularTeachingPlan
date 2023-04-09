@@ -1,0 +1,102 @@
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px #5a5a5a solid;
+  box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.25);
+
+  .mark {
+    height: 4rem;
+    width: 12rem;
+    min-height: 0;
+    min-width: 0;
+    margin-bottom: 0.6rem;
+    font-size: 1.6rem;
+
+    transition: 0.7s all linear;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      width: 2rem;
+      height: 2rem;
+      padding: 0.2rem;
+      background-color: #ffe8d8;
+      border-radius: 50%;
+      margin-left: 0.8rem;
+      box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    &.completed i {
+      background-color: #cceab2;
+    }
+  }
+}
+
+.course-detail {
+  padding: 1.2rem;
+  overflow-y: auto;
+  height: calc(100vh - 14.5rem);
+
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+
+  button {
+    min-height: auto;
+    font-size: 1.6rem;
+    margin-left: 1em;
+
+    &.inline {
+      margin: 0;
+    }
+  }
+
+  [libThrough] > :is(div, p) {
+    padding: 0.5rem 0.3rem 1rem;
+
+    &:not(:last-child) {
+      box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  p {
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+
+    &:not(.title) {
+      margin-left: 1em;
+    }
+  }
+
+  .detail {
+    padding-left: 1em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4rem;
+  }
+
+  code {
+    margin: 0 !important;
+    background-color: #dbdbdb4d;
+    font-family: inherit;
+    padding: 0 0.3rem;
+    color: #ef796c;
+  }
+
+  ul,
+  li {
+    margin: 0 !important;
+  }
+
+  ul {
+    list-style: decimal;
+    ul {
+      list-style: devanagari;
+    }
+  }
+
+  app-code-sample + app-code-sample {
+    margin-left: 1em;
+  }
+}

@@ -1,0 +1,68 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">
+        Angular的构建基于Webpack5，但默认情况下构建的配置则是被抽象为了原理图来进行管理。<button
+          libCheck="1"
+          (click)="openLink('https://angular.cn/guide/schematics')"
+        >
+          Angular原理图
+        </button>
+      </p>
+      <p class="title">
+        工程根目录下的<code>angular.json</code>则是实现了原理图的具体配置，通过<code
+          >ng new</code
+        >生成的工程中都会默认包含一个<code>angular.json</code>。<br />
+        其中<code>$schema</code>这个项目则指向了默认的原理图。可在其中参考默认提供的各类配置参数的可设定值。
+      </p>
+      <p class="detail">小技巧：可按住Shift实现同层级全部折叠展开。</p>
+    </div>
+    <div>
+      <p class="title">构筑基础定义</p>
+      <p>
+        构筑输出目录<br />
+        代码主入口main.ts<br />
+        界面主入口index.html<br />
+        typescript配置<br />
+        样式预处理器<br />
+        静态资产目录<br />
+        全局静态样式<br />
+        全局静态脚本代码<br />
+      </p>
+      <p class="title">构筑目标定义</p>
+      <p>
+        默认存在<code>production</code>与<code>development</code>两种目的明确的模式。<br />
+        过往Angular通过<code>environment.ts</code>的配置差分在<code>main.ts</code>中通过<code>enableProdMode()</code>来开启生产模式已经不在有效。
+        <button
+          libCheck="2"
+          (click)="
+            openLink(
+              'https://blog.ninja-squad.com/2022/11/16/angular-cli-15.0/'
+            )
+          "
+        >
+          Angular15的新改进</button
+        ><br />
+        <code>optimization (default:true)</code>将实现原本的生产模式全部功能。
+      </p>
+    </div>
+    <div>
+      <p class="title">面向Angular CLI的一些配置</p>
+      <p>
+        其中：<br />
+        <code>prefix</code>定义了CLI自动生成的代码是以什么作为前缀的。<br />
+        <code>style</code>则是说明了这个工程通常使用什么css预处理器。
+      </p>
+    </div>
+    <div>
+      <p class="title">面向Lint的一些配置</p>
+      <p>
+        Lint使用<code>.eslintrc.json</code>作为其配置文件。<br />
+        其中：<br />
+        <code>@angular-eslint/directive-selector</code
+        >定义了对指令的格式要求。<br />
+        <code>@angular-eslint/component-selector</code>定义了对模板的格式要求。
+      </p>
+    </div>
+  </div>
+</app-course>

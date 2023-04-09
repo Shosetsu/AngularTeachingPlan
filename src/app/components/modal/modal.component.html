@@ -1,0 +1,8 @@
+<div class="window" #main *ngIf="url" [hidden]="!visible" (click)="memoSize()">
+  <header [libMovable]="main" moveId="modal">
+    <i (click)="visible = !visible"><img src="assets/svg/minus.svg" /></i>
+    <span>{{ url }}</span>
+    <span class="size">{{ frame.clientWidth }} x {{ frame.clientHeight }}</span>
+  </header>
+  <iframe #frame [src]="safeUrl" [frameBorder]="0"></iframe>
+</div>

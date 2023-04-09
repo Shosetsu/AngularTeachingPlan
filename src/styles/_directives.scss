@@ -1,0 +1,54 @@
+.movable {
+  position: absolute;
+}
+
+.move-handler {
+  cursor: move;
+}
+
+.resizable {
+  position: relative;
+
+  .resizable-handler {
+    position: absolute;
+    top: 0;
+    transition: ease-out 0.5s;
+    background-color: #fdd;
+    opacity: 0;
+
+    &-left {
+      left: 0;
+      bottom: 0;
+      width: 1rem;
+      cursor: e-resize;
+    }
+
+    &-right {
+      right: 0;
+      bottom: 0;
+      width: 1rem;
+      cursor: e-resize;
+    }
+
+    &-top {
+      left: 0;
+      right: 0;
+      height: 1rem;
+      cursor: n-resize;
+    }
+
+    &-bottom {
+      top: initial;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1rem;
+      cursor: n-resize;
+    }
+
+    &:hover {
+      opacity: 0.5;
+      transition: ease-in 1;
+    }
+  }
+}

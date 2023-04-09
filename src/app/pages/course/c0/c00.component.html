@@ -1,0 +1,57 @@
+<app-course>
+  <div libThrough>
+    <p>
+      什么是Angular　<button
+        libCheck="1"
+        (click)="openLink('https://angular.cn/guide/what-is-angular')"
+      >
+        官方文档
+      </button>
+    </p>
+    <p>
+      Angular简单概念<button
+        libCheck="2"
+        (click)="openLink('https://angular.cn/guide/architecture')"
+      >
+        官方文档
+      </button>
+    </p>
+    <div>
+      <p class="title">
+        Angular内置渲染器Renderer<button
+          libCheck="3"
+          (click)="openLink('https://angular.cn/api/core/Renderer2')"
+        >
+          官方文档
+        </button>
+      </p>
+      <p>
+        推荐使用Renderer来修改DOM元素。<br />
+        若使用DOM原生方法来编辑，会增加Angular框架中对于DOM检测的额外开销，并获得较低性能的画面渲染。<br />
+        并且可以规避一些潜在的安全性问题。<button
+          libCheck="4"
+          (click)="openLink('https://angular.cn/guide/security')"
+        >
+          安全实践
+        </button>
+      </p>
+    </div>
+    <div>
+      <p class="title">下面是一些典型Angular总览表</p>
+      <p>
+        <button
+          class="inline"
+          (click)="openLink('https://angular.cn/guide/glossary')"
+        >
+          Angular词汇表
+        </button>
+        <button (click)="openLink('https://angular.cn/guide/cheatsheet')">
+          Angular速查表
+        </button>
+        <button (click)="openLink('https://angular.cn/guide/styleguide')">
+          Angular开发风格指南
+        </button>
+      </p>
+    </div>
+  </div>
+</app-course>
