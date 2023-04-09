@@ -23,12 +23,7 @@
           依附于模板中关键字的一种文件，可以以被选中元素为基础实现一系列特定功能，<br />
           指令本身被看作为是一个视图（View），可在其中使用生命周期钩子，<br />
           通常使用属性（Attr）作为其选择器（Selector），并拥有全局代码规范限制<br />
-          <button
-            libCheck="1"
-            (click)="
-              openLink('https://angular.cn/api/common#%E6%8C%87%E4%BB%A4')
-            "
-          >
+          <button libCheck="1" (click)="openLink('https://angular.cn/api/common#%E6%8C%87%E4%BB%A4')">
             官方提供的指令一览
           </button>
         </li>
@@ -44,14 +39,7 @@
           <button (click)="openLink('/course/c2-0')">课程计划</button><br />
           装饰器一种面向编译器（Compiler）的元数据管理文件，通过它也可以实现类似Java
           AOP的一些功能<br />
-          <button
-            libCheck="2"
-            (click)="
-              openLink(
-                'https://angular.cn/api/core#%E8%A3%85%E9%A5%B0%E5%99%A8'
-              )
-            "
-          >
+          <button libCheck="2" (click)="openLink('https://angular.cn/api/core#%E8%A3%85%E9%A5%B0%E5%99%A8')">
             官方提供的装饰器一览
           </button>
         </li>
@@ -59,12 +47,7 @@
           管道（Pipe）
           <button (click)="openLink('/course/c2-1')">课程计划</button><br />
           可以起到一些语法糖的效果，降低作业难度，并提高代码可读性。<br />
-          <button
-            libCheck="3"
-            (click)="
-              openLink('https://angular.cn/api/common#%E7%AE%A1%E9%81%93')
-            "
-          >
+          <button libCheck="3" (click)="openLink('https://angular.cn/api/common#%E7%AE%A1%E9%81%93')">
             官方提供的管道一览
           </button>
         </li>
@@ -116,51 +99,25 @@
         <li>
           在上述基础上，将各个业务模块拆分
           <ul>
-            <li>
-              biz/<code>XXXX</code>/components/ 放置业务内部使用的局部共通组件
-            </li>
+            <li>biz/<code>XXXX</code>/components/ 放置业务内部使用的局部共通组件</li>
             <li>biz/<code>XXXX</code>/pipes/ 放置业务内部使用的管道</li>
-            <li>
-              biz/<code>XXXX</code>/driectives/ 放置业务内部使用的局部共通指令
-            </li>
+            <li>biz/<code>XXXX</code>/driectives/ 放置业务内部使用的局部共通指令</li>
             <li>biz/<code>XXXX</code>/pages/ 放置业务内部使用的页面组件</li>
-            <li>
-              biz/<code>XXXX</code>/service/ 放置业务内部使用的局部共通服务
-            </li>
+            <li>biz/<code>XXXX</code>/service/ 放置业务内部使用的局部共通服务</li>
             <li>biz/<code>XXXX</code>/<code>XXXX</code>.module 定义这个模组</li>
-            <li>
-              biz/<code>XXXX</code>/<code>XXXX</code>-routing.module
-              定义这个模组的路由
-            </li>
+            <li>biz/<code>XXXX</code>/<code>XXXX</code>-routing.module 定义这个模组的路由</li>
           </ul>
         </li>
         <li>
           或者是通过<code>ng add</code>来添加多个子工程
           <ul>
-            <li>
-              /project/<code>XXXX</code>/src/app/components/
-              放置业务内部使用的局部共通组件
-            </li>
-            <li>
-              /project/<code>XXXX</code>/src/app/pipes/ 放置业务内部使用的管道
-            </li>
-            <li>
-              /project/<code>XXXX</code>/src/app/driectives/
-              放置业务内部使用的局部共通指令
-            </li>
-            <li>
-              /project/<code>XXXX</code>/src/app/pages/
-              放置业务内部使用的页面组件
-            </li>
-            <li>
-              /project/<code>XXXX</code>/src/app/service/
-              放置业务内部使用的局部共通服务
-            </li>
+            <li>/project/<code>XXXX</code>/src/app/components/ 放置业务内部使用的局部共通组件</li>
+            <li>/project/<code>XXXX</code>/src/app/pipes/ 放置业务内部使用的管道</li>
+            <li>/project/<code>XXXX</code>/src/app/driectives/ 放置业务内部使用的局部共通指令</li>
+            <li>/project/<code>XXXX</code>/src/app/pages/ 放置业务内部使用的页面组件</li>
+            <li>/project/<code>XXXX</code>/src/app/service/ 放置业务内部使用的局部共通服务</li>
             <li>/project/<code>XXXX</code>/src/app/app.module 定义这个模组</li>
-            <li>
-              /project/<code>XXXX</code>/src/app/app-routing.module
-              定义这个模组的路由
-            </li>
+            <li>/project/<code>XXXX</code>/src/app/app-routing.module 定义这个模组的路由</li>
           </ul>
         </li>
       </ul>

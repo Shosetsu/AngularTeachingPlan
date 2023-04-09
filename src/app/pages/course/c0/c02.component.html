@@ -2,12 +2,7 @@
   <div libThrough>
     <div>
       <p class="title">
-        如何安装Angular CLI<button
-          libCheck="1"
-          (click)="openLink('https://angular.cn/cli')"
-        >
-          官方文档</button
-        ><br />
+        如何安装Angular CLI<button libCheck="1" (click)="openLink('https://angular.cn/cli')">官方文档</button><br />
         <app-code-sample code="npm i -g @angular/cli"></app-code-sample>
       </p>
     </div>
@@ -24,10 +19,7 @@
       </p>
       <p>
         大版本更新时可能需要做出额外操作才能顺利更新Angular CLI，<br />可参考文档：
-        <button
-          libCheck="2"
-          (click)="openLink('https://update.angular.io/?v=14.0-15.0')"
-        >
+        <button libCheck="2" (click)="openLink('https://update.angular.io/?v=14.0-15.0')">
           这是Angular14→15的升级步骤
         </button>
       </p>
@@ -39,9 +31,7 @@
         <app-code-sample code="ng new"></app-code-sample>
       </p>
       <p>
-        当你拥有了一个Angular工程后，可在工程根目录下通过以下命令构建并启用它，这里默认省略了工程名。这个示例命令是<code
-          >ng serve</code
-        >的缩写。<br />
+        当你拥有了一个Angular工程后，可在工程根目录下通过以下命令构建并启用它，这里默认省略了工程名。这个示例命令是<code>ng serve</code>的缩写。<br />
         （但如果你同时拥有复数个工程时，需要适当指定工程名或将当前文件夹切换至其根目录下。）<br />
         <app-code-sample code="ng s"></app-code-sample>
         <app-code-sample code="ng serve"></app-code-sample>
@@ -57,35 +47,25 @@
       <p class="title">Angular CLI在开发中的实践</p>
       <p>
         【开发常用功能】让脚手架帮你搭建具体组件<code>ng generate</code>
-        <button
-          libCheck="3"
-          (click)="openLink('https://angular.cn/cli/generate')"
-        >
-          可生成的对象一览</button
-        ><br />
+        <button libCheck="3" (click)="openLink('https://angular.cn/cli/generate')">
+          可生成的对象一览</button><br />
         尝试一下，但要注意要适当的贴合当前目录。<br />
         部分重要但又缺失的命令行参数将会在命令执行后通过问答的形式要求输入。
       </p>
       <p class="detail">
         使用它在当前目录下生成一个<服务>，并命名为SampleEx1Service<br />
-        <app-code-sample code="ng g s sample-ex1"></app-code-sample>
-        <app-code-sample
-          code="ng generate service sample-ex1"
-        ></app-code-sample>
+          <app-code-sample code="ng g s sample-ex1"></app-code-sample>
+          <app-code-sample code="ng generate service sample-ex1"></app-code-sample>
       </p>
       <p class="detail">
         使用它在当前目录下生成一个<指令>，并命名为SampleEx2Directive<br />
-        <app-code-sample code="ng g d sample-ex2"></app-code-sample>
-        <app-code-sample
-          code="ng generate directive sample-ex3"
-        ></app-code-sample>
+          <app-code-sample code="ng g d sample-ex2"></app-code-sample>
+          <app-code-sample code="ng generate directive sample-ex3"></app-code-sample>
       </p>
       <p class="detail">
         使用它在当前目录下生成一个<组件>，并命名为SampleEx3Component<br />
-        <app-code-sample code="ng g c sample-ex3"></app-code-sample>
-        <app-code-sample
-          code="ng generate component sample-ex3"
-        ></app-code-sample>
+          <app-code-sample code="ng g c sample-ex3"></app-code-sample>
+          <app-code-sample code="ng generate component sample-ex3"></app-code-sample>
       </p>
       <p class="detail">
         不难看出，这些生成出来的空白文件都遵循着Angular最新的开发规约，并尽可能的贴合当前的Angular工程。<br />
@@ -94,28 +74,19 @@
       <p>【开发重要功能】lint，实现工程代码风格规范化组件</p>
       <p class="detail">
         <app-code-sample code="ng lint"></app-code-sample><br />
-        在工程中初次使用可能需要安装eslint，也会提供一定的预设lint方案，并且它也会被vscode的<button
-          class="inline"
-          (click)="
-            openLink(
-              'https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint'
-            )
-          "
-        >
-          eslint插件</button
-        >所读取并提供全天候自动的lint检查。
+        在工程中初次使用可能需要安装eslint，也会提供一定的预设lint方案，并且它也会被vscode的<button class="inline"
+          (click)="openLink('https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint')">
+          eslint插件</button>所读取并提供全天候自动的lint检查。
       </p>
       <p>
-        【单体测试】Jasmine Test <code>ng test</code
-        ><button (click)="openLink('/course/c7-0')">详细讲解</button>
+        【单体测试】Jasmine Test <code>ng test</code><button (click)="openLink('/course/c7-0')">详细讲解</button>
       </p>
       <p class="detail">
         <app-code-sample code="ng t"></app-code-sample>
         <app-code-sample code="ng test"></app-code-sample>
       </p>
       <p>
-        【回归测试】e2e Test <code>ng e2e</code
-        ><button (click)="openLink('/course/c7-2')">详细讲解</button>
+        【回归测试】e2e Test <code>ng e2e</code><button (click)="openLink('/course/c7-2')">详细讲解</button>
       </p>
       <p class="detail">
         <app-code-sample code="ng e2e"></app-code-sample>

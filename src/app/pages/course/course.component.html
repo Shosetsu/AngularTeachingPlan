@@ -1,13 +1,7 @@
 <div class="course-header">
   <h1>{{ title }}</h1>
-  <button
-    class="mark"
-    [class.completed]="isCompleted"
-    [class.non-complete]="!isCompleted"
-    (click)="markComplete()"
-  >
-    {{ isCompleted ? "解除标记" : "标记完成"
-    }}<i><img src="assets/svg/yes.svg" /></i>
+  <button class="mark" [class.completed]="isCompleted" [class.non-complete]="!isCompleted" (click)="markComplete()">
+    {{ isCompleted ? "解除标记" : "标记完成"}}<i><img src="assets/svg/yes.svg" /></i>
   </button>
 </div>
 <div class="course-detail">
