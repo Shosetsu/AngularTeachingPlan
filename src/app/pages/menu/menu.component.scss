@@ -53,6 +53,10 @@ section {
 
     &.completed {
       background-color: #e5ffd8;
+
+      li.focus {
+        background-color: #afe9beaa;
+      }
     }
   }
 
@@ -77,9 +81,6 @@ section {
       background-color: #f9cdc8aa;
     }
     &.completed {
-      &.focus {
-        background-color: #afe9beaa;
-      }
       &::after {
         content: "";
         position: absolute;
