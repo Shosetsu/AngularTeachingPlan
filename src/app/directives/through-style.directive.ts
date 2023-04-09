@@ -25,17 +25,6 @@ export class ThroughStyleDirective implements AfterContentInit {
     this.setCustomAttribute(this.elRef.nativeElement, attributeName);
   }
 
-  // 反例_ngAfterContentInit() {
-  //   // 子コンポーネントのルート要素の親要素を取得
-  //   const parentElement = this.elRef.nativeElement.parentElement!;
-  //   // 親要素から「_ngcontent」で始まる属性名を取得
-  //   const attributeName = Array.from(parentElement.attributes).find((attr) =>
-  //     attr.name.startsWith('_ngcontent')
-  //   )?.name;
-  //   // 取得した属性名を子コンポーネントの全ての要素に設定
-  //   this.setCustomAttribute(this.elRef.nativeElement, attributeName);
-  // }
-
   /**
    * 要素にカスタム属性を設定するメソッド
    * @param element 対象の要素
