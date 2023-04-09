@@ -1,5 +1,5 @@
 import {
-  AfterViewChecked,
+  AfterViewInit,
   Component,
   ElementRef,
   OnInit,
@@ -15,13 +15,15 @@ import { ModalService } from '@app/shared/modal.service';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent implements OnInit, AfterViewChecked {
+export class ModalComponent implements OnInit, AfterViewInit {
   url?: string;
   safeUrl?: SafeResourceUrl;
 
   @ViewChild('main') el?: ElementRef;
 
   visible = false;
+
+  size = '? x ?';
 
   constructor(
     private ds: DomSanitizer,
@@ -42,13 +44,35 @@ export class ModalComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  ngAfterViewChecked(): void {
-    if (this.el) {
-      const [height, width] = this.data
-        .getData<string>('modal.size', '600px,1000px')
-        .split(',');
-      this.render.setStyle(this.el.nativeElement, 'height', height);
-      this.render.setStyle(this.el.nativeElement, 'width', width);
+  ngAfterViewInit(): void {
+    const [height, width] = this.data
+      .getData<string>('modal.size', '600px,1000px')
+      .split(',');
+    this.render.setStyle(this.el?.nativeElement, 'height', height);
+    this.render.setStyle(this.el?.nativeElement, 'width', width);
+    this.size = `${height} x ${width}`;
+  }
+
+  maxWindow(): void {
+    const ref = document.querySelector<HTMLDivElement>('.course-detail');
+    if (ref) {
+      this.render.setStyle(
+        this.el?.nativeElement,
+        'height',
+        ref.clientHeight - 20 + 'px'
+      );
+      this.render.setStyle(
+        this.el?.nativeElement,
+        'width',
+        ref.clientWidth + 'px'
+      );
+      this.render.setStyle(this.el?.nativeElement, 'top', ref.offsetTop + 'px');
+      this.render.setStyle(
+        this.el?.nativeElement,
+        'left',
+        ref.offsetLeft + 'px'
+      );
+      this.memoSize();
     }
   }
 
@@ -57,5 +81,6 @@ export class ModalComponent implements OnInit, AfterViewChecked {
       'modal.size',
       `${this.el?.nativeElement.style.height},${this.el?.nativeElement.style.width}`
     );
+    this.size = `${this.el?.nativeElement.style.height} x ${this.el?.nativeElement.style.width}`;
   }
 }
