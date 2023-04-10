@@ -1,3 +1,14 @@
+:host.s {
+  .code-sample {
+    padding: 0.6rem 1.6rem;
+  }
+
+  .copy-button {
+    top: 0.8rem;
+    right: 1.8rem;
+  }
+}
+
 .code-sample {
   display: inline-flex;
   align-items: center;
