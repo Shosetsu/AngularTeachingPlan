@@ -58,26 +58,40 @@
   }
 
   [libThrough]> :is(div, p) {
-    padding: 0.5rem 0.3rem 1rem;
+    padding: 2rem 0.5em;
+
+    &:first-child {
+      padding-top: 1rem;
+    }
 
     &:not(:last-child) {
       box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.25);
     }
-  }
 
-  p {
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
-
-    &:not(.title) {
+    >:not(.title) {
+      margin-top: 1rem;
       margin-left: 1em;
     }
-  }
 
-  .detail {
-    padding-left: 1em;
-    margin-top: 0.4em;
-    margin-bottom: 0.4rem;
+    .title:not(:first-child){
+      margin-top: 2rem;
+    }
+
+    .detail {
+      padding-left: 1em;
+    }
+
+    .note {
+      margin-top: 0;
+      position: relative;
+      padding-left: 1.2em;
+
+      &::before{
+        content: '※';
+        position: absolute;
+        left: 0;
+      }
+    }
   }
 
   code {
@@ -86,6 +100,8 @@
     font-family: inherit;
     padding: 0 0.3rem;
     color: #ef796c;
+    font-weight: 300;
+    letter-spacing: -0.7px;
   }
 
   ul,
@@ -95,6 +111,7 @@
 
   ul {
     list-style: decimal;
+    padding-inline-start: 2rem;
 
     ul {
       list-style: devanagari;
