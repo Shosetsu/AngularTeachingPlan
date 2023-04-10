@@ -27,6 +27,24 @@
           安全实践
         </button>
       </p>
+      <p>
+        然而事事也并非总是一帆风顺，例如css变量<code>--variable</code>就无法通过Renderer正常设置。<br>
+        这种情况，可以使用下述原生JavaScript代码来实现。
+      </p>
+      <p>
+        获取值：
+        <app-code-sample>
+          getComputedStyle(element).getPropertyValue(`--resize-$&#123;type&#125;`);
+        </app-code-sample>
+        <br>设置值：
+        <app-code-sample>
+          element.style.setProperty(`--resize-$&#123;type&#125;`, `$&#123;smallSize&#125;`);
+        </app-code-sample>
+        <br>删除值：
+        <app-code-sample>
+          element.style.removeProperty(`--resize-$&#123;type&#125;`);
+        </app-code-sample>
+      </p>
     </div>
     <div>
       <p class="title">下面是一些典型Angular总览表</p>

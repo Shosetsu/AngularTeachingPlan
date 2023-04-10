@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-code-sample',
@@ -6,12 +6,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./code-sample.component.scss'],
 })
 export class CodeSampleComponent {
-  @Input() code = '';
+  @ViewChild('codeRef') codeContent?: ElementRef<HTMLElement>;
 
   copied = false;
 
   copy() {
-    navigator.clipboard.writeText(this.code);
+    navigator.clipboard.writeText(
+      this.codeContent?.nativeElement.innerText || ''
+    );
 
     this.copied = true;
     setTimeout(() => (this.copied = false), 3000);

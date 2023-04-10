@@ -1,4 +1,4 @@
-<div class="code-sample" *ngIf="code">
+<div class="code-sample">
   <a class="copy-button" [class.copied]="copied" (click)="copy()"> </a>
-  <code>{{ code }}</code>
+  <code #codeRef><ng-content></ng-content></code>
 </div>
