@@ -7,7 +7,7 @@
 }
 
 .resizable {
-  position: relative;
+  user-select: none;
 
   .resizable-handler {
     position: absolute;

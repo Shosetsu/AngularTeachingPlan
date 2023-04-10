@@ -1,21 +1,27 @@
 import {
-  AfterContentInit,
+  AfterViewInit,
   Directive,
   ElementRef,
   Input,
   Renderer2,
 } from '@angular/core';
+import { DataService } from '@app/shared/data.service';
 
 @Directive({
   selector: '[libResizable]',
 })
-export class ResizableDirective implements AfterContentInit {
+export class ResizableDirective implements AfterViewInit {
   @Input('libResizable') target!: HTMLElement;
   @Input() resizableType: ('left' | 'right' | 'top' | 'bottom')[] = [];
+  @Input() resizeId?: string;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private data: DataService
+  ) {}
 
-  ngAfterContentInit(): void {
+  ngAfterViewInit(): void {
     this.resizableType.map((type) => {
       const resizableHandler = document.createElement('div');
       this.renderer.addClass(resizableHandler, 'resizable-handler');
@@ -32,38 +38,91 @@ export class ResizableDirective implements AfterContentInit {
                 .getPropertyValue(`--resize-${type}`)
                 .match(/\d+/)?.[0] ?? 0
             );
-            const newPosition =
-              type === 'left' || type === 'right' ? e.movementX : e.movementY;
+            const newPosition = {
+              left: -e.movementX,
+              right: e.movementX,
+              top: -e.movementY,
+              bottom: e.movementY,
+            }[type];
             const movement = base + newPosition;
-            this.renderer.setProperty(
-              this.target,
-              `style`,
-              `--resize-${type} : ${movement}px`
-            );
+            this.target.style.setProperty(`--resize-${type}`, `${movement}px`);
+            if (type === 'top') {
+              this.renderer.setStyle(
+                this.target,
+                'top',
+                Number(
+                  getComputedStyle(this.target)
+                    .getPropertyValue('top')
+
+                    .match(/\d+/)?.[0]
+                ) +
+                  e.movementY +
+                  'px'
+              );
+            }
+            if (type === 'left') {
+              this.renderer.setStyle(
+                this.target,
+                'left',
+                Number(
+                  getComputedStyle(this.target)
+                    .getPropertyValue('left')
+
+                    .match(/\d+/)?.[0]
+                ) +
+                  e.movementX +
+                  'px'
+              );
+            }
           }
         );
 
         const currentMouseUp = this.renderer.listen(document, 'mouseup', () => {
           currentMouseMove();
           currentMouseUp();
+          this.saveValue();
         });
       });
+
       this.renderer.listen(resizableHandler, 'dblclick', () => {
         if (this.target.hasAttribute('style')) {
-          this.renderer.removeAttribute(this.target, 'style');
+          this.target.style.removeProperty(`--resize-${type}`);
         } else {
           const smallSize = getComputedStyle(this.target).getPropertyValue(
             `--resize-${type}-min`
           );
           if (smallSize) {
-            this.renderer.setProperty(
-              this.target,
-              `style`,
-              `--resize-${type} : ${smallSize}`
-            );
+            this.target.style.setProperty(`--resize-${type}`, `${smallSize}`);
           }
         }
+        this.saveValue();
       });
     }).length && this.renderer.addClass(this.el.nativeElement, 'resizable');
+
+    this.loadValue();
+  }
+  loadValue() {
+    if (this.resizeId) {
+      const data = this.data.getData<Record<string, string>>(
+        `resizable.${this.resizeId}`,
+        {}
+      );
+      this.resizableType
+        .filter((type) => data[type])
+        .forEach((type) => {
+          this.target.style.setProperty(`--resize-${type}`, data[type]);
+        });
+    }
+  }
+
+  saveValue() {
+    if (this.resizeId) {
+      const style = getComputedStyle(this.target);
+      const data: Record<string, string> = {};
+      this.resizableType.forEach((type) => {
+        data[type] = style.getPropertyValue(`--resize-${type}`);
+      });
+      this.data.setData(`resizable.${this.resizeId}`, data);
+    }
   }
 }

@@ -1,10 +1,8 @@
-<div class="window" #main [hidden]="!visible" (click)="memoSize()">
-  <ng-container *ngIf="url">
-    <header [libMovable]="main" moveId="modal" (dblclick)="maxWindow()">
-      <i (click)="visible = !visible"><img src="assets/svg/minus.svg" /></i>
-      <span>{{ url }}</span>
-      <span class="size">{{ size }}</span>
-    </header>
-    <iframe #frame [src]="safeUrl" [frameBorder]="0"></iframe>
-  </ng-container>
+<div class="window" #main [hidden]="!visible" [libResizable]="main" [resizableType]="['left','right','top','bottom']" resizeId="modal">
+  <header [libMovable]="main" moveId="modal">
+    <i (click)="visible = !visible"><img src="assets/svg/minus.svg" /></i>
+    <span>{{ url }}</span>
+    <span class="size">{{main.clientWidth}} x {{main.clientHeight}}</span>
+  </header>
+  <iframe *ngIf="safeUrl" [src]="safeUrl" [frameBorder]="0"></iframe>
 </div>
