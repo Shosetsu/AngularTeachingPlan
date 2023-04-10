@@ -5,44 +5,69 @@ import {
   Renderer2,
 } from '@angular/core';
 
+/**
+ * angular样式穿透用指令
+ */
 @Directive({
   selector: '[libThrough]',
 })
 export class ThroughStyleDirective implements AfterContentInit {
+  /** 基底组件标记 */
+  baseAttr = '';
+
   constructor(
     private elRef: ElementRef<HTMLElement>,
     private renderer: Renderer2
   ) {}
 
   ngAfterContentInit() {
-    // 子コンポーネントのルート要素の親要素を取得
+    // 获取上级组件对象
     const parentElement = this.elRef.nativeElement.parentElement;
-    // 親要素から「_ngcontent」で始まる属性名を取得
+    // 获取当前组件标记作为基底标记
+    this.baseAttr =
+      Array.from(this.elRef.nativeElement.attributes).find((attr) =>
+        attr.name.startsWith('_ngcontent')
+      )?.name || '';
+    // 从上级组件中取得上级组件的标记
     const attributeName = Array.from(parentElement?.attributes ?? []).find(
       (attr) => attr.name.startsWith('_ngcontent')
     )?.name;
-    // 取得した属性名を子コンポーネントの全ての要素に設定
-    this.setCustomAttribute(this.elRef.nativeElement, attributeName);
+    // 得到标记时
+    if (attributeName) {
+      // 递归设置
+      this.setCustomAttribute(this.elRef.nativeElement, attributeName);
+    }
   }
 
   /**
-   * 要素にカスタム属性を設定するメソッド
-   * @param element 対象の要素
-   * @param attributeName 設定する属性名
-   * @param attributeValue 設定する属性値
+   * 向元素中设置指定样式标记
+   *
+   * @param element 对象元素
+   * @param attributeName 设置属性名
+   * @param attributeValue 设置属性値
    */
   private setCustomAttribute(
     element: Element,
     attributeName = '',
     attributeValue = ''
   ): void {
-    // 属性名がない場合、設定不要
-    if (!attributeName) {
+    // 获取当前标记
+    const currentAttr =
+      Array.from(element.attributes).find((attr) =>
+        attr.name.startsWith('_ngcontent')
+      )?.name || '';
+
+    // 如果当前标记状态与基底标记不同时，结束这条分支的递归
+    if (
+      (this.baseAttr && !element.hasAttribute(this.baseAttr)) ||
+      (!this.baseAttr && currentAttr)
+    ) {
       return;
     }
-    // 属性名を設定
+
+    // 设置标记
     this.renderer.setAttribute(element, attributeName, attributeValue);
-    // 子要素全てに対して再帰的に処理を実行
+    // 对子节点继续递归设置
     for (const child of Array.from(element.children)) {
       this.setCustomAttribute(child, attributeName, attributeValue);
     }
