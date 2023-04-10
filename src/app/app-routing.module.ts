@@ -4,6 +4,11 @@ import { MenuComponent } from './pages/menu/menu.component';
 
 const routes: Routes = [
   {
+    path: 'inline',
+    loadChildren: () =>
+      import('@pages/course/course.module').then((m) => m.CourseModule),
+  },
+  {
     title: 'Angular指导目录',
     path: '',
     component: MenuComponent,
