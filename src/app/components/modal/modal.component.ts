@@ -3,11 +3,9 @@ import {
   Component,
   ElementRef,
   OnInit,
-  Renderer2,
   ViewChild,
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { DataService } from '@app/shared/data.service';
 import { ModalService } from '@app/shared/modal.service';
 
 @Component({
@@ -23,12 +21,7 @@ export class ModalComponent implements OnInit {
 
   visible = false;
 
-  constructor(
-    private ds: DomSanitizer,
-    private modal: ModalService,
-    private render: Renderer2,
-    private data: DataService
-  ) {}
+  constructor(private ds: DomSanitizer, private modal: ModalService) {}
 
   ngOnInit(): void {
     this.modal.listeningModals((url) => {
