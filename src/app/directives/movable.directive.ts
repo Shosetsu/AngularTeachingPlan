@@ -36,22 +36,26 @@ export class MovableDirective implements AfterViewInit {
 
   @HostListener('mousedown')
   dragThis() {
-    document.onmousemove = (e) => {
-      const top = this.movable.offsetTop + e.movementY + 'px';
-      const left = this.movable.offsetLeft + e.movementX + 'px';
-      this.renderer.setStyle(this.movable, 'top', top);
-      this.renderer.setStyle(this.movable, 'left', left);
-    };
+    const currentMouseMove = this.renderer.listen(
+      document,
+      'mousemove',
+      (e) => {
+        const top = Math.max(this.movable.offsetTop + e.movementY, 0) + 'px';
+        const left = Math.max(this.movable.offsetLeft + e.movementX, 0) + 'px';
+        this.renderer.setStyle(this.movable, 'top', top);
+        this.renderer.setStyle(this.movable, 'left', left);
+      }
+    );
 
-    document.onmouseup = () => {
+    const currentMouseUp = this.renderer.listen(document, 'mouseup', () => {
       if (this.moveId) {
         this.data.setData(
           'movable.' + this.moveId,
           `${this.movable.style.top},${this.movable.style.left}`
         );
       }
-      document.onmouseup = null;
-      document.onmousemove = null;
-    };
+      currentMouseMove();
+      currentMouseUp();
+    });
   }
 }

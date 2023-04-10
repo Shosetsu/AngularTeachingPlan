@@ -54,7 +54,7 @@ export class ModalComponent implements OnInit, AfterViewInit {
   }
 
   maxWindow(): void {
-    const ref = document.querySelector<HTMLDivElement>('.course-detail');
+    const ref = document.querySelector<HTMLDivElement>('.course-container');
     if (ref) {
       this.render.setStyle(
         this.el?.nativeElement,
