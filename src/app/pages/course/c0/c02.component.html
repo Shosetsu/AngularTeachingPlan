@@ -4,6 +4,8 @@
       <p class="title">
         如何安装Angular CLI<button libCheck="1" (click)="openLink('https://angular.cn/cli')">官方文档</button></p>
       <app-code-sample code="npm i -g @angular/cli"></app-code-sample>
+      <p>初次使用<code>ng</code>命令时可能会遇到Windows脚本权限管理的限制，可通过管理员权限的PowerShell执行下面代码来设置<code>ng.ps1</code>的脚本权限。</p>
+      <app-code-sample code="Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine"></app-code-sample>
     </div>
 
     <div>
