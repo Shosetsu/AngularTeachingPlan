@@ -72,7 +72,7 @@
           脚手架（路由守卫）：　<app-code-sample class="s">ng g g [name]</app-code-sample><br>
           脚手架（解析器）　：　<app-code-sample class="s">ng g r [name]</app-code-sample>
           <p class="note">注意，生成出来的代码是<code>deprecated</code>被弃用的，最新的写法可以参考下面。</p>
-          <app-code-sample class="s">
+          <app-code-sample>
             export const guradSample: CanActivateFn = async (route, state) =&gt; true;<br>
             export const resolverSample: ResolveFn&lt;string&gt; = async (route, state) =&gt; '';
           </app-code-sample>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -12,12 +12,14 @@ export class CodeSampleComponent {
 
   copied = false;
 
+  constructor(private de: ChangeDetectorRef) {}
+
   copy() {
     navigator.clipboard.writeText(
       this.codeContent?.nativeElement.innerText ?? ''
     );
 
     this.copied = true;
-    setTimeout(() => (this.copied = false), 3000);
+    setTimeout(() => ((this.copied = false), this.de.detectChanges()), 3000);
   }
 }
