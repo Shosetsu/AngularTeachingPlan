@@ -1,16 +1,17 @@
-import { ActivatedRouteSnapshot, Params, Route } from '@angular/router';
 import { COURSE_LIST } from '@app/configs/constants';
 
-export const getCourseKey = (params: Params, route: Route | null) =>
-  params['cid'] ?? route?.path?.split('/')[1];
+/** 从path获得当前课程key */
+export const getCurrentKey = () =>
+  location.pathname.match(/\/course\/(c\d-\d)/)?.[1] ?? '';
 
-export const getTitleByKey: (key: string) => string = (key) =>
+/** 获取课程名 */
+export const getTitleByKey = (key: string) =>
   COURSE_LIST.map(
     (course) => course.detail.find((de) => de.key === key)?.name
   ).find((name) => name) ?? '';
 
-export const getTitle: (route: ActivatedRouteSnapshot) => string = (route) =>
-  getTitleByKey(getCourseKey(route.params, route.routeConfig));
+/** 短缩写法 */
+export const getTitle = () => getTitleByKey(getCurrentKey());
 
-export const getCurrentKey = () =>
-  location.pathname.match(/\/course\/(c\d-\d)/)?.[1] ?? '';
+/** 是子组件吗？ */
+export const isChildView = () => !(window === parent);

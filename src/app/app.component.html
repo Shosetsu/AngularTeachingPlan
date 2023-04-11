@@ -1,7 +1,10 @@
+<!-- 简单loading -->
 <div class="load" *ngIf="isLoader">
   <div class="icon" role="status">
     <span>Loading...</span>
   </div>
 </div>
+<!-- 主要路由 -->
 <router-outlet></router-outlet>
+<!-- 附加的全局组件 - 小窗口 -->
 <app-modal></app-modal>

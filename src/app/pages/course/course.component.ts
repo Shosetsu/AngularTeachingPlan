@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CourseService } from '@app/shared/course.service';
-import { getCourseKey, getTitleByKey } from '@app/configs/util';
+import { getCurrentKey, getTitleByKey } from '@app/configs/util';
 import { BaseComponent } from '@pages/_base.component';
 
 @Component({
@@ -25,8 +25,8 @@ export class CourseComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((param) => {
-      this.key = getCourseKey(param, this.route.routeConfig);
+    this.route.params.subscribe(() => {
+      this.key = getCurrentKey();
       this.title = getTitleByKey(this.key);
     });
 
