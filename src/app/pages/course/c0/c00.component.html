@@ -2,7 +2,7 @@
   <div libThrough>
     <div>
       <p class="title">
-        什么是Angular　<button libCheck="1" (click)="openLink('https://angular.cn/guide/what-is-angular')">
+        什么是Angular<button libCheck="1" (click)="openLink('https://angular.cn/guide/what-is-angular')">
           官方文档
         </button>
       </p>
@@ -16,34 +16,29 @@
     </div>
     <div>
       <p class="title">
-        Angular内置渲染器Renderer<button libCheck="3" (click)="openLink('https://angular.cn/api/core/Renderer2')">
+        Angular内置渲染器 Renderer<button (click)="openLink('/inline/course/c4-1')">
+          后续课程 - Angular中的DOM操作
+        </button>
+      </p>
+    </div>
+    <div>
+      <p class="title">
+        全局事件、异步处理管理器 NgZone<button libCheck="3" (click)="openLink('https://angular.cn/guide/zone')">
           官方文档
         </button>
       </p>
       <p>
-        推荐使用Renderer来修改DOM元素。<br />
-        若使用DOM原生方法来编辑，会增加Angular框架中对于DOM检测的额外开销，并获得较低性能的画面渲染。<br />
-        并且可以规避一些潜在的安全性问题。<button libCheck="4" (click)="openLink('https://angular.cn/guide/security')">
-          安全实践
+        通常情况下，使用NgZone主要是为了将一些复杂逻辑扔到Angular外面去，以及把外部库处理后需要Angular响应返回值的逻辑拿进来。<br>
+        拿进来：<app-code-sample class="s">ngZone.run(()=>&#123; 外部函数() &#125;);</app-code-sample><br>
+        扔出去：<app-code-sample class="s">ngZone.runOutsideAngular(()=>&#123; 要扔出去的函数() &#125;)</app-code-sample>
+      </p>
+      <p class="note">但这并不应该成为对重负荷逻辑的操作方式，对于重负荷单纯逻辑，应当使用Worker的方式使其在其他线程执行。</p>
+    </div>
+    <div>
+      <p class="title">
+        Angular图片优化 NgOptimizedImage<button (click)="openLink('https://angular.cn/guide/image-directive')">
+          官方文档
         </button>
-      </p>
-      <p>
-        然而事事也并非总是如预想那般，例如css变量<code>--variable</code>就无法通过Renderer正常设置。<br>
-        这种情况，可以使用下面这样的原生JavaScript代码来实现。
-      </p>
-      <p>
-        获取：
-        <app-code-sample class="s">
-          getComputedStyle(element).getPropertyValue(`--resize-$&#123;type&#125;`);
-        </app-code-sample>
-        <br>设置：
-        <app-code-sample class="s">
-          element.style.setProperty(`--resize-$&#123;type&#125;`, `$&#123;smallSize&#125;`);
-        </app-code-sample>
-        <br>删除：
-        <app-code-sample class="s">
-          element.style.removeProperty(`--resize-$&#123;type&#125;`);
-        </app-code-sample>
       </p>
     </div>
     <div>

@@ -4,6 +4,7 @@
       <p class="title">
         如何安装Angular CLI<button libCheck="1" (click)="openLink('https://angular.cn/cli')">官方文档</button></p>
       <app-code-sample>npm i -g @angular/cli</app-code-sample>
+      <p>默认全局安装完成的Angular脚手架可在<app-code-sample class="xs">%APPDATA%\npm</app-code-sample>处找到。</p>
       <p>初次使用<code>ng</code>命令时可能会遇到Windows脚本权限管理的限制，可通过管理员权限的PowerShell执行下面代码来设置<code>ng.ps1</code>的脚本权限。</p>
       <app-code-sample>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine</app-code-sample>
     </div>
@@ -19,7 +20,7 @@
       <app-code-sample>ng update</app-code-sample>
       <p class="note">注意，该命令行需要在Angular工程的根目录下使用。</p>
       <p>
-        当Angular跨大版本更新时，可能需要做出额外操作才能顺利更新Angular CLI，<br />
+        当Angular跨大版本更新时，可能需要做出额外操作才能顺利更新Angular CLI，<br>
         通常可参考类似文档：
         <button libCheck="2" (click)="openLink('https://update.angular.io/?v=14.0-15.0')">
           这是Angular14→15的升级步骤
@@ -32,13 +33,13 @@
       <p>我们可以通过使用下面的简单命令在当前目录下创建一个基础的Angular工程。</p>
       <app-code-sample>ng new</app-code-sample>
       <p>
-        当你拥有了一个Angular工程后，可在工程根目录下通过以下命令构建并启用它，这里默认省略了工程名。这个示例命令是<code>ng serve</code>的缩写。<br />
+        当你拥有了一个Angular工程后，可在工程根目录下通过以下命令构建并启用它，这里默认省略了工程名。这个示例命令是<code>ng serve</code>的缩写。<br>
         （但如果你同时拥有复数个工程时，需要适当指定工程名或将当前文件夹切换至其根目录下。）
       </p>
       <app-code-sample>ng s</app-code-sample>
       <app-code-sample>ng serve</app-code-sample>
       <p>
-        和<code>ng serve</code>相似的命令是<code>ng build</code>。<br />
+        和<code>ng serve</code>相似的命令是<code>ng build</code>。<br>
         它可以构建指定的工程，构建完成后的静态资源将会被保存在预设的地方，或通过添加命令行参数进行指定。
       </p>
       <app-code-sample>ng b</app-code-sample>
@@ -51,27 +52,33 @@
           可生成的对象一览</button>
       </p>
       <p>
-        尝试一下，但要注意要适当的贴合当前目录。<br />
+        尝试一下，但要注意要适当的贴合当前目录。<br>
         部分重要但又缺失的命令行参数将会在命令执行后通过问答的形式要求输入。
       </p>
       <p>
-        使用它在当前目录下生成一个<服务>，并命名为SampleEx1Service<br />
-          <app-code-sample>ng g s sample-ex1</app-code-sample>
-          <app-code-sample>ng generate service sample-ex1</app-code-sample>
+        使用它在当前目录下生成一个<懒惰加载模组>，并命名为SampleEx1Module，它的路由路径为samplePath1，以及将它加入进AppModule的路由（AppModuleRouting）中。<br>
+          <app-code-sample class="s">ng g m sample-ex1 --route samplePath1 -m app</app-code-sample><br>
+          <app-code-sample class="s">ng generate module sample-ex1 --route samplePath1 --module app</app-code-sample>
       </p>
       <p>
-        使用它在当前目录下生成一个<指令>，并命名为SampleEx2Directive<br />
-          <app-code-sample>ng g d sample-ex2</app-code-sample>
-          <app-code-sample>ng generate directive sample-ex3</app-code-sample>
+        使用它在当前目录下生成一个<服务>，并命名为SampleEx2Service<br>
+          <app-code-sample class="s">ng g s sample-ex2</app-code-sample><br>
+          <app-code-sample class="s">ng generate service sample-ex2</app-code-sample>
       </p>
       <p>
-        使用它在当前目录下生成一个<组件>，并命名为SampleEx3Component<br />
-          <app-code-sample>ng g c sample-ex3</app-code-sample>
-          <app-code-sample>ng generate component sample-ex3</app-code-sample>
+        使用它在当前目录下生成一个<指令>，并命名为SampleEx3Directive，并顺带将它加入到SampleEx1Module<br>
+          <app-code-sample class="s">ng g d sample-ex3 -m sample-ex1</app-code-sample><br>
+          <app-code-sample class="s">ng generate directive sample-ex3 --module sample-ex1</app-code-sample>
+      </p>
+      <p>
+        使用它在当前目录下生成一个<组件>，并命名为SampleEx4Component，但将它的变化检测修改为一次性，并要求其没有样式控制<br>
+          <app-code-sample class="s">ng g c sample-ex4 -c OnPush -v None</app-code-sample><br>
+          <app-code-sample class="s">ng generate component sample-ex4 --change-detection OnPush --view-encapsulation
+            None</app-code-sample>
       </p>
       <p class="note">
-        不难看出，这些生成出来的空白文件都遵循着Angular最新的开发规约，并尽可能的贴合当前的Angular工程。<br />
-        例如组件会自动注册给最近的模块（Module）等等。
+        不难看出，这些生成出来的空白文件都遵循着Angular最新的开发规约，并尽可能的贴合当前的Angular工程。<br>
+        例如当且仅有一个模组时，组件则总是会自动注册给那个模组（Module）等等。
       </p>
 
       <p class="title">【开发重要功能】lint，实现工程代码风格规范化组件</p>

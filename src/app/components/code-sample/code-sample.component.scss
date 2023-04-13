@@ -1,3 +1,15 @@
+:host.xs {
+  .code-sample {
+    padding: 0.6rem 1.6rem;
+    min-width: initial;
+  }
+
+  .copy-button {
+    top: 0.8rem;
+    right: 1.8rem;
+  }
+}
+
 :host.s {
   .code-sample {
     padding: 0.6rem 1.6rem;
@@ -50,7 +62,7 @@
 }
 
 code {
-  font-family: 'Roboto Mono';
+  font-family: "Roboto Mono";
   padding-right: 3.6rem;
   font-size: 1.4rem;
   line-height: 2.4rem;

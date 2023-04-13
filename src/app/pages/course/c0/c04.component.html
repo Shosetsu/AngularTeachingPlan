@@ -9,22 +9,22 @@
       </p>
       <ul>
         <li>
-          模组（Module）<br />
+          模组（Module）<br>
           Angular是基于模组单位的，模组还提供了一系列其他文件的管理与架构设计<br>
           脚手架：　<app-code-sample class="s">ng g m [name]</app-code-sample>
         </li>
         <li>
           路由（Routing）
-          <button (click)="openLink('/inline/course/c3-0')">课程计划</button><br />
+          <button (click)="openLink('/inline/course/c3-0')">课程计划</button><br>
           提供路由元数据搭载的一种特殊模组文件，通常是作为一个单独文件存在的<br>
           脚手架：　<app-code-sample class="s">ng g m [name] --routing</app-code-sample>
         </li>
         <li>
           指令（Directive）
-          <button (click)="openLink('/inline/course/c1-1')">课程计划</button><br />
-          依附于模板中关键字的一种文件，可以以被选中元素为基础实现一系列特定功能，<br />
-          指令本身被看作为是一个视图（View），因此也可以在其中使用生命周期钩子，<br />
-          通常使用属性（Attr）作为其选择器（Selector），并拥有全局代码规范限制<br />
+          <button (click)="openLink('/inline/course/c1-1')">课程计划</button><br>
+          依附于模板中关键字的一种文件，可以以被选中元素为基础实现一系列特定功能，<br>
+          指令本身被看作为是一个视图（View），因此也可以在其中使用生命周期钩子，<br>
+          通常使用属性（Attr）作为其选择器（Selector），并拥有全局代码规范限制<br>
           参考：<button libCheck="1" (click)="openLink('https://angular.cn/api/common#%E6%8C%87%E4%BB%A4')">
             官方提供的指令一览
           </button><br>
@@ -32,17 +32,17 @@
         </li>
         <li>
           组件（Component）
-          <button (click)="openLink('/inline/course/c1-0')">课程计划</button><br />
-          组件是指令的超集，在其基础上额外添加了模板（html的片段）与样式（stylesheet）的支持，并支持路由作为路由输出视图来使用,<br />
-          和指令一样，组件本身也被看作为是一个视图（View），也可以在其中使用生命周期钩子，<br />
+          <button (click)="openLink('/inline/course/c1-0')">课程计划</button><br>
+          组件是指令的超集，在其基础上额外添加了模板（html的片段）与样式（stylesheet）的支持，并支持路由作为路由输出视图来使用,<br>
+          和指令一样，组件本身也被看作为是一个视图（View），也可以在其中使用生命周期钩子，<br>
           通常使用标签（Tag）作为其选择器（Selector），并拥有全局代码规范限制<br>
           脚手架：　<app-code-sample class="s">ng g c [name]</app-code-sample>
         </li>
         <li>
           装饰器（Decorator）
-          <button (click)="openLink('/inline/course/c2-0')">课程计划</button><br />
+          <button (click)="openLink('/inline/course/c2-0')">课程计划</button><br>
           装饰器一种面向编译器（Compiler）的元数据管理文件，通过它也可以实现类似Java
-          AOP的一些功能<br />
+          AOP的一些功能<br>
           参考：<button libCheck="2" (click)="openLink('https://angular.cn/api/core#%E8%A3%85%E9%A5%B0%E5%99%A8')">
             官方提供的装饰器一览
           </button><br>
@@ -50,8 +50,8 @@
         </li>
         <li>
           管道（Pipe）
-          <button (click)="openLink('/inline/course/c2-1')">课程计划</button><br />
-          可以起到一些语法糖的效果，降低作业难度，并提高代码可读性。<br />
+          <button (click)="openLink('/inline/course/c2-1')">课程计划</button><br>
+          可以起到一些语法糖的效果，降低作业难度，并提高代码可读性。<br>
           参考：<button libCheck="3" (click)="openLink('https://angular.cn/api/common#%E7%AE%A1%E9%81%93')">
             官方提供的管道一览
           </button><br>
@@ -59,15 +59,15 @@
         </li>
         <li>
           服务（Service）
-          <button (click)="openLink('/inline/course/c5-0')">课程计划</button><br />
-          服务是一个Angular中经常使用依赖注入（DI）的一种文件，和Java中的依赖注入一样，<br />
+          <button (click)="openLink('/inline/course/c5-0')">课程计划</button><br>
+          服务是一个Angular中经常使用依赖注入（DI）的一种文件，和Java中的依赖注入一样，<br>
           在编译之前的代码中声明自己需要注入的对象，在编译时由编译器安排注入，从而实现全局单例并让数据得以在不同视图间得到传递。<br>
           脚手架：　<app-code-sample class="s">ng g s [name]</app-code-sample>
         </li>
         <li>
           路由守卫和解析器（Gurad/Resovler）
-          <button (click)="openLink('/inline/course/c3-5')">课程计划</button><br />
-          曾经它也是两种在Angular中经常使用全局依赖注入（DI）的一种文件。<br />
+          <button (click)="openLink('/inline/course/c3-5')">课程计划</button><br>
+          曾经它也是两种在Angular中经常使用全局依赖注入（DI）的一种文件。<br>
           然而在最近的版本中Angular已经弃暗投明，已经不在推荐使用该类，而是转用标准的JavaScript标准的函数式声明。<br>
           脚手架（路由守卫）：　<app-code-sample class="s">ng g g [name]</app-code-sample><br>
           脚手架（解析器）　：　<app-code-sample class="s">ng g r [name]</app-code-sample>
@@ -76,6 +76,12 @@
             export const guradSample: CanActivateFn = async (route, state) =&gt; true;<br>
             export const resolverSample: ResolveFn&lt;string&gt; = async (route, state) =&gt; '';
           </app-code-sample>
+        </li>
+        <li>
+          懒惰加载模组（Lazy-loading Feature Modules）
+          <button (click)="openLink('/inline/course/c3-4')">课程计划</button><br>
+          它是一种特殊的模组，常被用来封装并管理一些项目中半独立的模块。<br>
+          脚手架：　<app-code-sample class="s">ng g m [name] --route [routeName/pathName]</app-code-sample>
         </li>
       </ul>
     </div>

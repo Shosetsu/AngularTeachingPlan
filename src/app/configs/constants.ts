@@ -9,7 +9,7 @@ export const COURSE_LIST = [
       },
       {
         key: 'c0-1',
-        name: 'TypeScript的基础知识',
+        name: '简单介绍TypeScript',
       },
       {
         key: 'c0-2',
@@ -39,15 +39,15 @@ export const COURSE_LIST = [
       },
       {
         key: 'c1-2',
-        name: '组件和指令的设计实践',
+        name: '组件与指令的设计实践',
       },
       {
         key: 'c1-3',
-        name: '生命周期',
+        name: 'Angular视图的生命周期',
       },
       {
         key: 'c1-4',
-        name: '内容投影',
+        name: '在组件中使用内容投影',
       },
     ],
   },
@@ -57,11 +57,11 @@ export const COURSE_LIST = [
     detail: [
       {
         key: 'c2-0',
-        name: '装饰器概述',
+        name: '装饰器的概述',
       },
       {
         key: 'c2-1',
-        name: '管道概述',
+        name: '管道的概述',
       },
       {
         key: 'c2-2',

@@ -1,0 +1,51 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">
+        TypeScript中的DOM操作
+      </p>
+      <p>TODO...</p>
+    </div>
+    <div>
+      <p class="title">
+        Angular内置渲染器Renderer<button libCheck="1" (click)="openLink('https://angular.cn/api/core/Renderer2')">
+          官方文档
+        </button>
+      </p>
+      <p>
+        通常在Angular中，开发者应当使用Renderer来修改DOM元素。<br>
+        在使用中，我们可以通过以下两种方式得到Renderer的引用。<br>
+        <app-code-sample class="s">
+          constructor(private renderer: Renderer2) &#123;&#125;
+        </app-code-sample><br>
+        <app-code-sample class="s">
+          const renderer = inject(Renderer2);
+        </app-code-sample><br>
+        Renderer实现了绝大多数原生DOM操作的功能，并且协调了Angular对视图的更新。<br>
+        若使用DOM原生方法来编辑，则会增加Angular框架中对于DOM检测的额外开销，从而导致获得较低性能的画面渲染。<br>
+        以及使用Renderer来进行DOM操作时，也可以由其内置的处理逻辑来规避一些潜在的安全性问题。<button libCheck="2"
+          (click)="openLink('https://angular.cn/guide/security')">
+          安全实践
+        </button>
+      </p>
+      <p>
+        然而事事也并非总是如预想那般，例如css变量<code>--variable</code>就无法通过Renderer正常设置。<br>
+        这种情况，可以使用下面这样的原生JavaScript代码来实现。
+      </p>
+      <p>
+        获取：
+        <app-code-sample class="s">
+          getComputedStyle(element).getPropertyValue(`--resize-$&#123;type&#125;`);
+        </app-code-sample>
+        <br>设置：
+        <app-code-sample class="s">
+          element.style.setProperty(`--resize-$&#123;type&#125;`, `$&#123;smallSize&#125;`);
+        </app-code-sample>
+        <br>删除：
+        <app-code-sample class="s">
+          element.style.removeProperty(`--resize-$&#123;type&#125;`);
+        </app-code-sample>
+      </p>
+    </div>
+  </div>
+</app-course>
