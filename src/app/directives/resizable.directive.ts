@@ -15,6 +15,8 @@ export class ResizableDirective implements AfterViewInit {
   @Input() resizableType: ('left' | 'right' | 'top' | 'bottom')[] = [];
   @Input() resizeId?: string;
 
+  private shade = document.createElement('div');
+
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
@@ -22,6 +24,9 @@ export class ResizableDirective implements AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
+    this.renderer.addClass(this.shade, 'resizable-shade');
+    this.renderer.appendChild(this.el.nativeElement, this.shade);
+
     this.resizableType.map((type) => {
       const resizableHandler = document.createElement('div');
       this.renderer.addClass(resizableHandler, 'resizable-handler');
@@ -29,6 +34,7 @@ export class ResizableDirective implements AfterViewInit {
       this.renderer.appendChild(this.el.nativeElement, resizableHandler);
 
       this.renderer.listen(resizableHandler, 'mousedown', () => {
+        this.renderer.addClass(this.shade, 'open');
         const currentMouseMove = this.renderer.listen(
           document,
           'mousemove',
@@ -78,6 +84,7 @@ export class ResizableDirective implements AfterViewInit {
         );
 
         const currentMouseUp = this.renderer.listen(document, 'mouseup', () => {
+          this.renderer.removeClass(this.shade, 'open');
           currentMouseMove();
           currentMouseUp();
           this.saveValue();

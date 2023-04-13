@@ -1,4 +1,5 @@
-<div class="window" #main [hidden]="!visible" [libResizable]="main" [resizableType]="['left','right','top','bottom']" resizeId="modal">
+<div class="window" #main [hidden]="!visible" [libResizable]="main" [resizableType]="['left','right','top','bottom']"
+  resizeId="modal">
   <header [libMovable]="main" moveId="modal">
     <i (click)="visible = !visible"><img src="assets/svg/minus.svg" /></i>
     <span>{{ url }}</span>
