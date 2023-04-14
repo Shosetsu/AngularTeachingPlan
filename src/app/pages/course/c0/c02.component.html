@@ -4,7 +4,7 @@
       <p class="title">
         如何安装Angular CLI<button libCheck="1" (click)="openLink('https://angular.cn/cli')">官方文档</button></p>
       <app-code-sample>npm i -g @angular/cli</app-code-sample>
-      <p>默认全局安装完成的Angular脚手架可在<app-code-sample class="xs">%APPDATA%\npm</app-code-sample>处找到。</p>
+      <p>默认全局安装完成的Angular CLI可在<app-code-sample class="xs">%APPDATA%\npm</app-code-sample>处找到。</p>
       <p>初次使用<code>ng</code>命令时可能会遇到Windows脚本权限管理的限制，可通过管理员权限的PowerShell执行下面代码来设置<code>ng.ps1</code>的脚本权限。</p>
       <app-code-sample>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine</app-code-sample>
     </div>
@@ -84,10 +84,10 @@
       <p class="title">【开发重要功能】lint，实现工程代码风格规范化组件</p>
       <app-code-sample>ng lint</app-code-sample>
       <p class="note">
-        在工程中初次使用可能需要安装eslint，也会提供一定的预设lint方案，<br>
-        并且它也会被vscode的<button class="inline"
+        在工程中初次使用可能需要安装eslint，当然它也会提供一定的预设lint方案，<br>
+        并且它也会被<button class="inline"
           (click)="openLink('https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint')">
-          eslint插件</button>所读取并提供全天候自动的lint检查。
+          VSCode的ESLint插件</button>所读取并提供全自动的lint检查。
       </p>
     </div>
     <div>

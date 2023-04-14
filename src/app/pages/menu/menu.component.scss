@@ -3,6 +3,7 @@ main {
   --resize-right: 400px;
   --resize-right-min: 30px;
   grid-template: 6rem calc(100vh - 6rem) / var(--resize-right) auto;
+  overflow: hidden;
 }
 
 section {

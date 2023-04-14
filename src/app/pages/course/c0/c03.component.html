@@ -2,7 +2,7 @@
   <div libThrough>
     <div>
       <p class="title">
-        Angular的构建基于Webpack5，但默认情况下构建的配置则是被抽象为了原理图来进行管理。<button libCheck="1"
+        Angular在构建的过程中使用了Webpack5、Ivy等一系列耳熟能详的最新技术栈，但默认情况下这些构建的配置都是被抽象为了Angular CLI原理图来进行管理。<button libCheck="1"
           (click)="openLink('https://angular.cn/guide/schematics')">
           Angular原理图
         </button>
@@ -15,24 +15,28 @@
     </div>
     <div>
       <p class="title">构筑基础定义</p>
-      <p>
-        构筑输出目录<br>
-        代码主入口main.ts<br>
-        界面主入口index.html<br>
-        typescript配置<br>
-        样式预处理器<br>
-        静态资产目录<br>
-        全局静态样式<br>
-        全局静态脚本代码<br>
-      </p>
+      <ul>
+        <li>构筑输出目录</li>
+        <li>代码主入口main.ts</li>
+        <li>界面主入口index.html</li>
+        <li>TypeScript配置（tsconfig.json）<button libCheck="2"
+            (click)="openLink('https://angular.cn/guide/typescript-configuration')">官方文档</button></li>
+        <li>样式预处理器</li>
+        <li>静态资产目录</li>
+        <li>全局静态样式</li>
+        <li>全局静态脚本代码</li>
+      </ul>
       <p class="title">构筑目标定义</p>
       <p>
-        默认存在<code>production</code>与<code>development</code>两种目的明确的模式。<br>
-        过往Angular通过<code>environment.ts</code>的配置差分在<code>main.ts</code>中通过<code>enableProdMode()</code>来开启生产模式已经不在有效。
-        <button libCheck="2" (click)="openLink('https://blog.ninja-squad.com/2022/11/16/angular-cli-15.0/')">
+        默认存在<code>production(生产)</code>与<code>development(开发)</code>两种目的明确的模式。<br>
+        过往Angular通过<code>environment.ts</code>的配置差分在<code>main.ts</code>中通过<code>enableProdMode()</code>来开启生产模式已经不在有效。<br>
+        在Angular9开始使用预先<code>Ahead-of-Time (AOT)</code>取代即时<code>Just-in-Time (JIT)</code>之后便已不再有效。 参考资料：<button
+          libCheck="3" (click)="openLink('https://blog.ninja-squad.com/2022/11/16/angular-cli-15.0/')">
           Angular15的新改进
-        </button><br>
-        <code>optimization (default:true)</code>将实现原本的生产模式全部功能。
+        </button><button libCheck="4" (click)="openLink('https://angular.cn/guide/aot-compiler')">什么是预先编译？</button><br>
+        <code>optimization (default:true)</code>将实现原本的生产模式全部功能。<br>
+        生产模式的介绍：<button libCheck="5"
+          (click)="openLink('https://angular.cn/guide/deployment#production-optimizations')">什么是生产模式？</button>
       </p>
     </div>
     <div>
@@ -50,6 +54,17 @@
         其中：<br>
         <code>@angular-eslint/directive-selector</code>定义了对指令的格式要求。<br>
         <code>@angular-eslint/component-selector</code>定义了对组件的格式要求。
+      </p>
+    </div>
+    <div>
+      <p class="title">面向语言服务的配置</p>
+      <p>
+        <button class="inline" libCheck="6"
+          (click)="openLink('https://angular.cn/guide/language-service')">Angular语言服务</button>使用项目根目录下的<code>tsconfig.json</code>作为它的配置参考文件。
+      </p>
+      <p>
+        若想要在IDE/Editor中使用Angular语言服务，可安装对应的插件。例如VSCode：<button class="inline"
+          (click)="openLink('https://marketplace.visualstudio.com/items?itemName=Angular.ng-template')">Angular语言服务插件</button>
       </p>
     </div>
   </div>
