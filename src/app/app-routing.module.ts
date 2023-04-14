@@ -17,6 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'sample',
+    canActivateChild: [() => window.parent !== window],
     loadChildren: () =>
       import('@pages/sample/sample.module').then((m) => m.SampleModule),
   },

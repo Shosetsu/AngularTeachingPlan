@@ -7,7 +7,6 @@ import { Component, NgZone, OnInit } from '@angular/core';
   styleUrls: ['../course/course.component.scss'],
 })
 export class Sample1Component implements OnInit {
-  isChildDom = window.parent !== window;
   no = location.pathname.match(/\d+$/)?.[0] ?? '';
 
   sample1Value = '1';
