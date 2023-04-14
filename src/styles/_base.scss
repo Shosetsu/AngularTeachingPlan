@@ -65,3 +65,16 @@ button {
 img {
   width: 100%;
 }
+
+code {
+  font-family: "Roboto Mono";
+  margin: 0;
+  padding: 0 0.3rem;
+  color: #ef796c;
+  letter-spacing: -0.7px;
+  background-color: #dbdbdb4d;
+
+  &.b {
+    letter-spacing: normal;
+  }
+}
