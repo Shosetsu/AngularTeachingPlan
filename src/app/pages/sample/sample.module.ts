@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SampleComponent } from './sample.component';
+import { Sample1Component } from './sample1.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from '@components/_components.module';
 
-const routes: Routes = [{ path: ':id', component: SampleComponent }];
+const routes: Routes = [{ path: '1', component: Sample1Component }];
 
 @NgModule({
-  declarations: [SampleComponent],
+  declarations: [Sample1Component],
   imports: [
     CommonModule,
     FormsModule,

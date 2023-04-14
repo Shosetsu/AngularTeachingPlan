@@ -1,0 +1,32 @@
+<section class="course-detail" *ngIf="isChildDom">
+    <h1>举个大栗子No.{{no}}</h1>
+    <div>
+        <div>
+            <p>
+                这里公开了2个方法如下：<br>
+                isInside : <code>() => NgZone.isInAngularZone()</code><br>
+                runInside : <code>(fn: () => void) => inject(NgZone).run(() => fn())</code>
+            </p>
+            <p>
+                尝试在浏览器控制台中使用这些代码。
+            </p>
+            <app-code-sample class="s">isInside()</app-code-sample> >> false<br>
+            <app-code-sample class="s">runInside(()=>isInside())</app-code-sample> >> true
+        </div>
+        <div>
+            <p>
+                这里包含了一个值（1）它将在5s后更新为另一个值（2）。<br>
+                &gt;<code class="b">{{sample1Value}}</code>&lt;<br>
+                并且公开了下面这个方法用来修改它的值。<br>
+                updateSample1Value : <code>(val: string) => (this.sample1Value = val)</code>
+            </p>
+            <p>
+                尝试在浏览器控制台中使用这些代码。
+            </p>
+            <app-code-sample class="s">updateSample1Value('3')</app-code-sample> >> '3'
+            但画面未更新，尝试触发任何其他AngularZone内事件后则会更新<br>
+            <app-code-sample class="s">runInside(()=>updateSample1Value('4'))</app-code-sample> >> '4'
+            画面会直接更新，该外部方法也被标记为AngularZone<br>
+        </div>
+    </div>
+</section>
