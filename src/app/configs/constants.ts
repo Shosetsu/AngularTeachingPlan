@@ -31,23 +31,27 @@ export const COURSE_LIST = [
     detail: [
       {
         key: 'c1-0',
-        name: '组件的基础知识',
-      },
-      {
-        key: 'c1-1',
         name: '指令的基础知识',
       },
       {
+        key: 'c1-1',
+        name: '组件的基础知识',
+      },
+      {
         key: 'c1-2',
-        name: '组件与指令的设计实践',
+        name: '组件的内容投影',
       },
       {
         key: 'c1-3',
-        name: 'Angular视图的生命周期',
+        name: '视图的生命周期',
       },
       {
         key: 'c1-4',
-        name: '在组件中使用内容投影',
+        name: '组件的进阶知识',
+      },
+      {
+        key: 'c1-5',
+        name: '组件与指令的设计实践',
       },
     ],
   },
