@@ -33,6 +33,9 @@
         扔出去：<app-code-sample class="s">ngZone.runOutsideAngular(()=>&#123; 要扔出去的函数() &#125;)</app-code-sample>
       </p>
       <p class="note">但这并不应该成为对重负荷逻辑的操作方式，对于重负荷单纯逻辑，应当使用Worker的方式使其在其他线程执行。</p>
+      <p>
+        <button class="inline" libCheck="4" (click)="openLink('/sample/1')">试一试</button>
+      </p>
     </div>
     <div>
       <p class="title">

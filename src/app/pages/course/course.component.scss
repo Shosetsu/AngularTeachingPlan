@@ -57,7 +57,7 @@
     }
   }
 
-  [libThrough]> :is(div, p) {
+  > div > :is(div, p) {
     padding: 2rem 0.5em;
 
     &:first-child {
@@ -68,12 +68,12 @@
       box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.25);
     }
 
-    >:not(.title) {
+    > :not(.title) {
       margin-top: 1rem;
       margin-left: 1em;
     }
 
-    .title:not(:first-child){
+    .title:not(:first-child) {
       margin-top: 2rem;
     }
 
@@ -86,8 +86,8 @@
       position: relative;
       padding-left: 1.2em;
 
-      &::before{
-        content: '※';
+      &::before {
+        content: "※";
         position: absolute;
         left: 0;
       }
@@ -118,7 +118,7 @@
     }
   }
 
-  app-code-sample+app-code-sample {
+  app-code-sample + app-code-sample {
     margin-left: 1em;
   }
 }
