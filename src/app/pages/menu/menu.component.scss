@@ -58,7 +58,6 @@ section {
 
   .course {
     padding: 2.4rem;
-    background-color: #fbdfdc;
     margin-bottom: 1rem;
     border-radius: 2rem;
     font-size: 1.6rem;
@@ -78,8 +77,6 @@ section {
     }
 
     &.completed {
-      background-color: #e5ffd8;
-
       li.focus {
         background-color: #afe9beaa;
       }
@@ -119,6 +116,10 @@ section {
         border-left: 30px solid transparent;
         border-right: 30px solid transparent;
         border-top: 2rem solid #33c4cf;
+      }
+
+      &.focus {
+        background-color: #f0efdaaa;
       }
     }
   }
