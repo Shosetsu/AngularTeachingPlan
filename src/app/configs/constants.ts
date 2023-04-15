@@ -31,11 +31,11 @@ export const COURSE_LIST = [
     detail: [
       {
         key: 'c1-0',
-        name: '指令的基础知识',
+        name: '组件的基础知识',
       },
       {
         key: 'c1-1',
-        name: '组件的基础知识',
+        name: '指令的基础知识',
       },
       {
         key: 'c1-2',
@@ -47,11 +47,11 @@ export const COURSE_LIST = [
       },
       {
         key: 'c1-4',
-        name: '组件的进阶知识',
+        name: '响应式表单设计',
       },
       {
         key: 'c1-5',
-        name: '组件与指令的设计实践',
+        name: '视图的变更检测与样式控制',
       },
     ],
   },
@@ -61,19 +61,19 @@ export const COURSE_LIST = [
     detail: [
       {
         key: 'c2-0',
-        name: '装饰器的概述',
+        name: '装饰器的概念',
       },
       {
         key: 'c2-1',
-        name: '管道的概述',
+        name: '管道的基础知识',
       },
       {
         key: 'c2-2',
-        name: '创建自定义装饰器',
+        name: '使用自定义装饰器',
       },
       {
         key: 'c2-3',
-        name: '创建自定义管道',
+        name: '使用自定义管道',
       },
     ],
   },
@@ -83,103 +83,95 @@ export const COURSE_LIST = [
     detail: [
       {
         key: 'c3-0',
-        name: '路由基础知识',
+        name: '什么是Angular路由',
       },
       {
         key: 'c3-1',
-        name: '显示多个视图',
+        name: '理解路由参数及属性',
       },
       {
         key: 'c3-2',
-        name: '路由和参数',
+        name: '如何处理路由事件',
       },
       {
         key: 'c3-3',
-        name: '配置子路由',
-      },
-      {
-        key: 'c3-4',
-        name: '配置懒惰加载模块',
-      },
-      {
-        key: 'c3-5',
-        name: '配置路由守卫和解析器',
+        name: '设计子路由与懒惰加载模块',
       },
     ],
   },
   {
     key: 'c4',
-    title: ' JavaScript/TypeScript强化学习',
+    title: '服务与HTTP通信设计',
     detail: [
       {
         key: 'c4-0',
-        name: 'JavaScript与DOM',
+        name: '什么是Angular服务',
       },
       {
         key: 'c4-1',
-        name: 'TypeScript/Angular中的DOM',
+        name: '依赖性注入概念和使用',
       },
       {
         key: 'c4-2',
-        name: 'TypeScript的数据类型',
+        name: '创建和使用服务',
       },
       {
         key: 'c4-3',
-        name: 'TypeScript的泛型',
+        name: 'HTTP通信的设计',
       },
       {
         key: 'c4-4',
-        name: 'TypeScript类型操作（简略）',
-      },
-      {
-        key: 'c4-5',
-        name: 'ES6~ES2021的新特性',
-      },
-      {
-        key: 'c4-6',
-        name: '异步操作基础 promise（承诺）',
-      },
-      {
-        key: 'c4-7',
-        name: '异步操作基础 await async（语法糖：方法同步）',
-      },
-      {
-        key: 'c4-8',
-        name: '异步操作进阶 RxJs - observable（可观测的）',
-      },
-      {
-        key: 'c4-9',
-        name: 'JavaScript/TypeScript中典型的数据处理方法',
-      },
-      {
-        key: 'c4-10',
-        name: '高性能Angular 多线程Worker',
+        name: '如何使用拦截器',
       },
     ],
   },
   {
     key: 'c5',
-    title: '服务设计和HTTP通信设计',
+    title: ' JavaScript/TypeScript强化学习',
     detail: [
       {
         key: 'c5-0',
-        name: '基本的服务概念',
+        name: '简介JavaScript与DOM的历史',
       },
       {
         key: 'c5-1',
-        name: '依赖性注入概念和使用',
+        name: 'TypeScript/Angular中的DOM',
       },
       {
         key: 'c5-2',
-        name: '创建和使用服务',
+        name: 'TypeScript的数据类型',
       },
       {
         key: 'c5-3',
-        name: 'HTTP通信的设计',
+        name: 'TypeScript的泛型',
       },
       {
         key: 'c5-4',
-        name: '如何使用拦截器',
+        name: 'TypeScript类型操作（简略）',
+      },
+      {
+        key: 'c5-5',
+        name: 'ES6~ES2021的新特性',
+      },
+      {
+        key: 'c5-6',
+        name: '异步操作基础 Promise（承诺）',
+      },
+      {
+        key: 'c5-7',
+        name: '异步操作基础 await async（语法糖：方法同步）',
+      },
+      {
+        key: 'c5-8',
+        name: '异步操作进阶 RxJs - Observable（可观测的）',
+      },
+      {
+        key: 'c5-9',
+        name: 'JavaScript/TypeScript中典型的数据处理方式',
+      },
+      {
+        key: 'c5-10',
+        name: '高性能Angular - 多线程Worker',
       },
     ],
   },
@@ -223,7 +215,7 @@ export const COURSE_LIST = [
       },
       {
         key: 'c7-1',
-        name: '在Angular中设置测试',
+        name: '在Angular中设置Jasmine测试',
       },
       {
         key: 'c7-2',
@@ -231,7 +223,7 @@ export const COURSE_LIST = [
       },
       {
         key: 'c7-3',
-        name: '用Protractor设置e2e测试',
+        name: '通过Protractor进行e2e测试',
       },
     ],
   },

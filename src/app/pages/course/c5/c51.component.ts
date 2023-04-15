@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CourseDetailComponent } from '../course-detail.component';
 
 @Component({
-  selector: 'app-c41',
-  templateUrl: './c41.component.html',
+  selector: 'app-c51',
+  templateUrl: './c51.component.html',
 })
-export class C41Component extends CourseDetailComponent {}
+export class C51Component extends CourseDetailComponent {}

@@ -10,7 +10,7 @@ import { C02Component } from './c0/c02.component';
 import { ComponentsModule } from '@components/_components.module';
 import { C03Component } from './c0/c03.component';
 import { C04Component } from './c0/c04.component';
-import { C41Component } from './c4/c41.component';
+import { C51Component } from './c5/c51.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { C41Component } from './c4/c41.component';
     C02Component,
     C03Component,
     C04Component,
-    C41Component,
+    C51Component,
   ],
   imports: [
     CommonModule,
