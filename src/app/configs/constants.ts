@@ -31,11 +31,11 @@ export const COURSE_LIST = [
     detail: [
       {
         key: 'c1-0',
-        name: '组件的基础知识',
+        name: '组件与指令的基础概念',
       },
       {
         key: 'c1-1',
-        name: '指令的基础知识',
+        name: '如何使用Angular的模板',
       },
       {
         key: 'c1-2',
@@ -51,7 +51,7 @@ export const COURSE_LIST = [
       },
       {
         key: 'c1-5',
-        name: '视图的变更检测与样式控制',
+        name: '视图的变更检测与封装',
       },
     ],
   },
@@ -97,6 +97,10 @@ export const COURSE_LIST = [
         key: 'c3-3',
         name: '设计子路由与懒惰加载模块',
       },
+      {
+        key: 'c3-3',
+        name: '设计路由守卫和解析器',
+      },
     ],
   },
   {
@@ -121,7 +125,7 @@ export const COURSE_LIST = [
       },
       {
         key: 'c4-4',
-        name: '如何使用拦截器',
+        name: '如何使用拦截器和代理',
       },
     ],
   },
