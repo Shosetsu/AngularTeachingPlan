@@ -4,7 +4,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 @Component({
   selector: 'app-sample1',
   templateUrl: './sample1.component.html',
-  styleUrls: ['../course/course.component.scss'],
+  styleUrls: ['./sample.component.scss'],
 })
 export class Sample1Component implements OnInit {
   no = location.pathname.match(/\d+$/)?.[0] ?? '';
