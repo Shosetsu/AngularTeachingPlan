@@ -1,3 +1,4 @@
+import { ResolveFn } from '@angular/router';
 import { COURSE_LIST } from '@app/configs/constants';
 
 /** 从path获得当前课程key */
@@ -10,8 +11,9 @@ export const getTitleByKey = (key: string) =>
     (course) => course.detail.find((de) => de.key === key)?.name
   ).find((name) => name) ?? '';
 
-/** 短缩写法 */
-export const getTitle = () => getTitleByKey(getCurrentKey());
+/** 从路由解释课程名 */
+export const getTitleByRoute: ResolveFn<string> = (route) =>
+  getTitleByKey(route.url[1].toString());
 
 /** 是子组件吗？ */
 export const isChildView = () => !(window === parent);

@@ -12,7 +12,7 @@ import { C04Component } from './c0/c04.component';
 import { C51Component } from './c5/c51.component';
 import { C10Component } from './c1/c10.component';
 import { Route, RouterModule } from '@angular/router';
-import { getTitle } from '@app/configs/util';
+import { getTitleByRoute } from '@app/configs/util';
 
 const courseComponents = [
   C00Component,
@@ -30,11 +30,11 @@ const courseComponents = [
     CommonModule,
     RouterModule.forChild([
       ...courseComponents.map<Route>((component) => ({
-        title: getTitle,
+        title: getTitleByRoute,
         path: component.name.replace(/C(\d)(\d)Component/, 'course/c$1-$2'),
         component,
       })),
-      { title: getTitle, path: 'course/:cid', component: CourseComponent },
+      { title: getTitleByRoute, path: 'course/:cid', component: CourseComponent },
     ]),
     ComponentsModule,
     DirectivesModule,
