@@ -9,12 +9,12 @@ export class DataService {
   private mainKey = 'atp-data';
 
   constructor() {
-    this.data = JSON.parse(atob(localStorage.getItem(this.mainKey) ?? 'e30='));
+    this.data = JSON.parse(localStorage.getItem(this.mainKey) ?? '{}');
   }
 
   setData(key: string, data: any): void {
     this.data[key] = data;
-    localStorage.setItem(this.mainKey, btoa(JSON.stringify(this.data)));
+    localStorage.setItem(this.mainKey, JSON.stringify(this.data));
   }
 
   getData<T>(key: string, def: T): T {

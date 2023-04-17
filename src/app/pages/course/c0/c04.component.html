@@ -9,14 +9,17 @@
       </p>
       <ul>
         <li>
-          模组（Module）<br>
-          Angular是基于模组单位的，模组还提供了一系列其他文件的管理与架构设计<br>
+          模块（Module）<br>
+          Angular是基于模块单位的，模块还提供了一系列其他文件的管理与架构设计<br>
+          参考：<button libCheck="1" (click)="openLink('https://angular.cn/guide/architecture-modules')">
+            官方文档
+          </button><br>
           脚手架：　<app-code-sample class="s">ng g m [name]</app-code-sample>
         </li>
         <li>
           路由（Routing）
           <button (click)="openLink('/inline/course/c3-0')">课程计划</button><br>
-          提供路由元数据搭载的一种特殊模组文件，通常是作为一个单独文件存在的<br>
+          提供路由元数据搭载的一种特殊模块文件，通常是作为一个单独文件存在的<br>
           脚手架：　<app-code-sample class="s">ng g m [name] --routing</app-code-sample>
         </li>
         <li>
@@ -25,7 +28,7 @@
           依附于模板中关键字的一种文件，可以以被选中元素为基础实现一系列特定功能，<br>
           指令本身被看作为是一个视图（View），因此也可以在其中使用生命周期钩子，<br>
           通常使用属性（Attr）作为其选择器（Selector），并拥有全局代码规范限制<br>
-          参考：<button libCheck="1" (click)="openLink('https://angular.cn/api/common#%E6%8C%87%E4%BB%A4')">
+          参考：<button libCheck="2" (click)="openLink('https://angular.cn/api/common#%E6%8C%87%E4%BB%A4')">
             官方提供的指令一览
           </button><br>
           脚手架：　<app-code-sample class="s">ng g d [name]</app-code-sample>
@@ -43,7 +46,7 @@
           <button (click)="openLink('/inline/course/c2-0')">课程计划</button><br>
           装饰器一种面向编译器（Compiler）的元数据管理文件，通过它也可以实现类似Java
           AOP的一些功能<br>
-          参考：<button libCheck="2" (click)="openLink('https://angular.cn/api/core#%E8%A3%85%E9%A5%B0%E5%99%A8')">
+          参考：<button libCheck="3" (click)="openLink('https://angular.cn/api/core#%E8%A3%85%E9%A5%B0%E5%99%A8')">
             官方提供的装饰器一览
           </button><br>
           没有脚手架，官方不认为这是一个普遍需要的的东西。
@@ -52,7 +55,7 @@
           管道（Pipe）
           <button (click)="openLink('/inline/course/c2-1')">课程计划</button><br>
           可以起到一些语法糖的效果，降低作业难度，并提高代码可读性。<br>
-          参考：<button libCheck="3" (click)="openLink('https://angular.cn/api/common#%E7%AE%A1%E9%81%93')">
+          参考：<button libCheck="4" (click)="openLink('https://angular.cn/api/common#%E7%AE%A1%E9%81%93')">
             官方提供的管道一览
           </button><br>
           脚手架：　<app-code-sample class="s">ng g p [name]</app-code-sample>
@@ -78,9 +81,9 @@
           </app-code-sample>
         </li>
         <li>
-          懒惰加载模组（Lazy-loading Feature Modules）
+          懒惰加载模块（Lazy-loading Feature Modules）
           <button (click)="openLink('/inline/course/c3-4')">课程计划</button><br>
-          它是一种特殊的模组，常被用来封装并管理一些项目中半独立的模块。<br>
+          它是一种特殊的模块，常被用来封装并管理一些工程中半独立的模块。<br>
           脚手架：　<app-code-sample class="s">ng g m [name] --route [routeName/pathName]</app-code-sample>
         </li>
       </ul>
@@ -94,7 +97,7 @@
         <li>
           src/app/ 工程应用
           <ul>
-            <li>app.module 在main.ts中被定义为是启动模组</li>
+            <li>app.module 在main.ts中被定义为是启动模块</li>
             <li>app.component 实现了index.html中入口组件app-root</li>
             <li>app.routing.module 实现了根(root)路由元数据(matedata)配置</li>
           </ul>
@@ -124,8 +127,8 @@
             <li>biz/<code>XXXX</code>/driectives/ 放置业务内部使用的局部共通指令</li>
             <li>biz/<code>XXXX</code>/pages/ 放置业务内部使用的页面组件</li>
             <li>biz/<code>XXXX</code>/service/ 放置业务内部使用的局部共通服务</li>
-            <li>biz/<code>XXXX</code>/<code>XXXX</code>.module 定义这个模组</li>
-            <li>biz/<code>XXXX</code>/<code>XXXX</code>-routing.module 定义这个模组的路由</li>
+            <li>biz/<code>XXXX</code>/<code>XXXX</code>.module 定义这个模块</li>
+            <li>biz/<code>XXXX</code>/<code>XXXX</code>-routing.module 定义这个模块的路由</li>
           </ul>
         </li>
         <li>
@@ -136,8 +139,8 @@
             <li>/project/<code>XXXX</code>/src/app/driectives/ 放置业务内部使用的局部共通指令</li>
             <li>/project/<code>XXXX</code>/src/app/pages/ 放置业务内部使用的页面组件</li>
             <li>/project/<code>XXXX</code>/src/app/service/ 放置业务内部使用的局部共通服务</li>
-            <li>/project/<code>XXXX</code>/src/app/app.module 定义这个模组</li>
-            <li>/project/<code>XXXX</code>/src/app/app-routing.module 定义这个模组的路由</li>
+            <li>/project/<code>XXXX</code>/src/app/app.module 定义这个模块</li>
+            <li>/project/<code>XXXX</code>/src/app/app-routing.module 定义这个模块的路由</li>
           </ul>
         </li>
       </ul>
