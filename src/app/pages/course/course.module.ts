@@ -11,8 +11,8 @@ import { C03Component } from './c0/c03.component';
 import { C04Component } from './c0/c04.component';
 import { C51Component } from './c5/c51.component';
 import { C10Component } from './c1/c10.component';
-import { Route, RouterModule } from '@angular/router';
-import { getTitleByRoute } from '@app/configs/util';
+import { RouterModule } from '@angular/router';
+import { courseKeyList, getTitleByRoute } from '@app/configs/util';
 
 const courseComponents = [
   C00Component,
@@ -24,18 +24,20 @@ const courseComponents = [
   C51Component,
 ];
 
+const routes = [
+  ...courseComponents.map((component, index) => ({
+    title: getTitleByRoute,
+    path: 'course/' + courseKeyList[index],
+    component,
+  })),
+  { title: getTitleByRoute, path: 'course/:cid', component: CourseComponent },
+];
+
 @NgModule({
   declarations: [...courseComponents, CourseComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      ...courseComponents.map<Route>((component) => ({
-        title: getTitleByRoute,
-        path: component.name.replace(/C(\d)(\d)Component/, 'course/c$1-$2'),
-        component,
-      })),
-      { title: getTitleByRoute, path: 'course/:cid', component: CourseComponent },
-    ]),
+    RouterModule.forChild(routes),
     ComponentsModule,
     DirectivesModule,
     PipesModule,

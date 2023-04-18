@@ -15,5 +15,11 @@ export const getTitleByKey = (key: string) =>
 export const getTitleByRoute: ResolveFn<string> = (route) =>
   getTitleByKey(route.url[1].toString());
 
-/** 是子组件吗？ */
-export const isChildView = () => !(window === parent);
+/** 是子窗口吗？ */
+export const isChildWindow = () => window !== parent;
+
+/** 把二维json拆成一维后把key全抽出来 */
+export const courseKeyList = COURSE_LIST.reduce<string[]>(
+  (p, c) => [...(p ?? []), ...c.detail.map((detail) => detail.key)],
+  []
+);
