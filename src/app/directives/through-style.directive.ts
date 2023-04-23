@@ -24,14 +24,9 @@ export class ThroughStyleDirective implements AfterContentInit {
     // 获取上级组件对象
     const parentElement = this.elRef.nativeElement.parentElement;
     // 获取当前组件标记作为基底标记
-    this.baseAttr =
-      Array.from(this.elRef.nativeElement.attributes).find((attr) =>
-        attr.name.startsWith('_ngcontent')
-      )?.name || '';
+    this.baseAttr = this.getNgContent(this.elRef.nativeElement);
     // 从上级组件中取得上级组件的标记
-    const attributeName = Array.from(parentElement?.attributes ?? []).find(
-      (attr) => attr.name.startsWith('_ngcontent')
-    )?.name;
+    const attributeName = this.getNgContent(parentElement);
     // 得到标记时
     if (attributeName) {
       // 递归设置
@@ -52,10 +47,7 @@ export class ThroughStyleDirective implements AfterContentInit {
     attributeValue = ''
   ): void {
     // 获取当前标记
-    const currentAttr =
-      Array.from(element.attributes).find((attr) =>
-        attr.name.startsWith('_ngcontent')
-      )?.name || '';
+    const currentAttr = this.getNgContent(element);
 
     // 如果当前标记状态与基底标记不同时，结束这条分支的递归
     if (
@@ -71,5 +63,19 @@ export class ThroughStyleDirective implements AfterContentInit {
     for (const child of Array.from(element.children)) {
       this.setCustomAttribute(child, attributeName, attributeValue);
     }
+  }
+
+  /**
+   * 取ngcontent编码
+   *
+   * @param element 对象元素
+   * @returns 取得结果
+   */
+  private getNgContent(element?: Element | null): string {
+    return (
+      Array.from(element?.attributes ?? []).find((attr) =>
+        attr.name.startsWith('_ngcontent')
+      )?.name || ''
+    );
   }
 }
