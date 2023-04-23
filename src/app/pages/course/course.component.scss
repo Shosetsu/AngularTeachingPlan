@@ -94,16 +94,22 @@
     }
   }
 
-  ul:not(.s) {
-    margin: 0.8rem 0;
-    li:not(:first-child) {
-      margin: 0.8rem 0 0;
-    }
-  }
-
   ul {
     list-style: decimal;
     padding-inline-start: 2rem;
+    margin-top: 0.8rem !important;
+
+    li:not(:first-child) {
+      margin-top: 0.8rem;
+    }
+
+    &.s {
+      margin-top: 0.5rem !important;
+
+      li:not(:first-child) {
+        margin-top: 0.4rem;
+      }
+    }
 
     ul {
       list-style: devanagari;
