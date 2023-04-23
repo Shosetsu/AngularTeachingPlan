@@ -1,18 +1,14 @@
 :host.xs {
   .code-sample {
-    padding: 0.6rem 1.6rem;
     min-width: initial;
-  }
-
-  .copy-button {
-    top: 0.8rem;
-    right: 1.8rem;
   }
 }
 
-:host.s {
+:host.s,
+:host.xs {
   .code-sample {
     padding: 0.6rem 1.6rem;
+    margin-top: 0.5rem;
   }
 
   .copy-button {

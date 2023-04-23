@@ -1,0 +1,173 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">
+        组件使用的模板<button libCheck="1" (click)="openLink('https://angular.cn/guide/template-overview')">
+          官方文档
+        </button>
+      </p>
+      <p>
+        在Angular中，模板是用户界面(UI)片段的蓝图。模板是用<code>HTML</code>编写的，可以在模板中使用特殊语法来构建Angular的许多特性。<br>
+        几乎所有<code>HTML</code>语法都是有效的模板语法。但是，由于Angular模板只是UI的一个片段，因此它不包含<code>&lt;html&gt;</code>、<code>&lt;body&gt;</code>或<code>&lt;base&gt;</code>等元素。<br>
+        顺带一提，SVG也可以作为Angular的模板来使用。
+      </p>
+    </div>
+    <div>
+      <p class="title">Angular模板中的语法（模板表达式~绑定）
+        <button libCheck="2" (click)="openLink('https://angular.cn/guide/binding-overview')">官方文档 - 绑定</button><br>
+      </p>
+      <p>模板表达式几乎与JavaScript的语法相同。</p>
+      <p>模板表达式总是会优先使用<code>模板引用变量</code>，然后再去寻找<code>组件成员变量</code>。</p>
+      <div class="detail">模板引用变量<button
+          (click)="openLink('https://angular.cn/guide/template-statements')">官方文档</button><br>
+        在模板表达式中，除了可以使用所属组件TypeScript类中的属性和函数以外，还可以使用模板引用变量作为自己的一部分。<br>
+        通常有以下几种常见情况：
+        <ul>
+          <li>
+            通过圆括号<code>(input)="onInput($event)"</code>声明的事件绑定，可在回调函数中获得一个<code>$event</code>临时变量作为可能的参数。<br>
+            它的类型是Event，具体分类可参考由TsLib提供的<code>addEventListener</code>的文档。
+          </li>
+          <li>
+            通过井号<code>#name</code>的声明，可以获得一个模板内可用的临时DOM元素变量<code>name</code>。<br>
+            它的类型是实际继承了<code>HTMLElement</code>的类型。（例如HTMLDivElement）
+          </li>
+          <li>
+            通过内置指令<code>*ngFor="let item of items;index = i"</code>等一些结构型指令的声明，可以获得一个或多个指令范围内可用的临时变量<code>item, index</code>。<br>
+            它的类型是要看实际情况，例如<code>i</code>被<code>NgFor</code>定义为<code>number</code>，而被迭代的对象则会被解释为<code>Array&lt;T&gt;</code>的<code>T</code>（<code>typeof items[0]</code>）。
+          </li>
+        </ul>
+        模板引用变量总是拥有最高的优先级，当发生重名的时候，模板表达式总是会使用模板引用变量作为自己的第一选择。<br>
+        但出于代码风格要求，最好不要起同样的名字，以避免发生意外的变量隐藏(variable shadowing)问题
+      </div>
+    </div>
+    <div>
+      <p class="title">在模板中使用Angular的逻辑内容（TypeScript类）</p>
+      <ul>
+        <li>
+          文本插值<button libCheck="3" (click)="openLink('https://angular.cn/guide/interpolation')">官方文档</button><br>
+          它使用双花括号<code>&#123;&#123;<span></span>&#125;&#125;</code>声明，将其中的表达式解释为string并输出在该处。<br>
+          表达式的执行位于当前使用该模板的组件TypeScript类中，因此可直接在表达式中引用模板中未被定义为private的变量，常量以及各种函数。<br>
+          例如：<app-code-sample
+            class="s">&#123;&#123;<span>isFalsy?tempValue:value</span>&#125;&#125;</app-code-sample><br>
+          上面这段便通过访问查询组件TypeScript类中<code>isFalsy</code>属性的值是否为Truthy/Falsy来返回类中属性<code>tempValue</code>或<code>value</code>的值作为string输出在这里。
+        </li>
+        <li>
+          属性绑定<button libCheck="4" (click)="openLink('https://angular.cn/guide/attribute-binding')">官方文档</button><br>
+          作为一个从上向下的设置，它使用方括号<code>[attr.]</code>声明，并在其中提供属性的关键字attr作为前缀。<br>
+          由于Angular支持的属性（内置指令/开发者自定义的使用属性作为选择器的视图/当前视图中定义的输入（@Input）项目）都受到Angular语言服务的支持及控制，<br>
+          该属性绑定方式仅用于Angular范围外的属性绑定使用。<br>
+          例如：<app-code-sample class="s">[attr.abc]="isAbc?getAbcValue():null"</app-code-sample><br>
+          当组件成员变量<code>isAbc</code>为Truthy时，使用组件成员变量（函数）<code>getAbcValue</code>来取得内容并设置在该元素（Node）的abc属性里，其他情况下则不设置abc属性。<br>
+          当然，如果<code>getAbcValue</code>返回了null或undefined，那么也同样不会为该节点生成abc属性。
+        </li>
+        <li>
+          样式绑定<button libCheck="5" (click)="openLink('https://angular.cn/guide/class-binding')">官方文档</button><br>
+          作为一个从上向下的设置，它使用方括号<code>[class.] || [style.]</code>声明，并在其中提供属性的关键字class或style作为前缀。<br>
+          也可以使用<code>[class] || [style]</code>做一个完整的绑定。但要注意，完整绑定在其被绑定值的引用未被更新的情况下，Angular是不会对其进行变更检测的。<br>
+          若有需求，应该使用对应的内置指令（NgClass/NgStyle）。
+        </li>
+        <li>
+          事件绑定<button libCheck="6" (click)="openLink('https://angular.cn/guide/event-binding')">官方文档</button><br>
+          作为一个从下向上的事件，它使用圆括号<code>()</code>声明。<br>
+          它可以被用于DOM原生事件、当前视图中定义的输出（@Output）事件。<br>
+          它提供了一个回调函数的模板（片段）作为值预先设定。<br>
+          例如：<app-code-sample class="s">(focus)="showHint($event)"</app-code-sample><br>
+          它等价于：<app-code-sample
+            class="s">thisNode.addEventListener('focus',(event)=>this.showHint(event))</app-code-sample>
+          <p class="detail">
+            如果不使用原生事件，自己定义的话，可以在被绑定的视图TypeScript类中按如下定义：<br>
+            <app-code-sample class="s">
+              @Output() focus = new EventEmitter&lt;FocusEvent&gt;();
+            </app-code-sample>
+          </p>
+        </li>
+        <li>
+          视图属性绑定<button libCheck="7" (click)="openLink('https://angular.cn/guide/property-binding')">官方文档</button><br>
+          作为一个从上向下的设置，它使用方括号<code>[]</code>声明。<br>
+          它与属性绑定相似，但是被绑定的属性属于当前视图的一部分，或是某些视图（通常是指令）的CSS选择器。<br>
+          因此在使用中不需要添加attr也不能添加attr，Angular语言服务会为此提供包含类型在内的各种语言支持功能。<br>
+          例如：<app-code-sample class="s">[libResizable]="main" [resizableType]="['right']"</app-code-sample><br>
+          它通过libResizable，激活并在此处设置了一个指令的视图，然后并设置了该组件需要的第二输入属性<code>resizableType</code>。
+          <p class="detail">
+            在被绑定的视图TypeScript类中应当如下定义：<br>
+            <app-code-sample class="s">
+              @Input('libResizable') target!: HTMLElement;<br>
+              @Input() resizableType: ('left' | 'right' | 'top' | 'bottom')[] = [];
+            </app-code-sample>
+          </p>
+        </li>
+        <li>
+          双向绑定<button (click)="openLink('https://angular.cn/guide/two-way-binding')">官方文档</button><br>
+          它使用方括号加圆括号<code>[()]</code>声明，实现对的双向绑定。<br>
+          因为包含了一个事件绑定，因此通常总是被使用在两个视图之间的处理。<br>
+          例如：<app-code-sample class="s">[(val)]="thisVal"</app-code-sample><br>
+          它等价于：<app-code-sample class="s">[val]="thisVal" (valChange)="thisVal=$event"</app-code-sample>
+          <p class="detail">
+            在被绑定的视图TypeScript类中应当如下定义：<br>
+            <app-code-sample class="s">
+              @Input() val: any;<br>
+              @Output() valChange = new EventEmitter&lt;any&gt;();
+            </app-code-sample>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p class="title">在Angular视图（TypeScript类）中使用它拥有模板</p>
+      <div>
+        <p class="title">获取模板上的DOM元素</p>
+        <ul>
+          <li>
+            通过注入<code>ElementRef</code>来获取当前宿主元素<code>inject(ElementRef&lt;HTMLElement&gt;)</code><button libCheck="8"
+              (click)="openLink('https://angular.cn/api/core/ElementRef#security-risk')">安全风险</button>
+          </li>
+          <li>
+            通过注入<code>TemplateRef</code>来获取当前宿主元素中的内嵌模板<code>inject(TemplateRef<?>)</code><button
+              (click)="openLink('https://angular.cn/api/core/TemplateRef')">官方文档</button>
+          </li>
+          <li>
+            通过装饰器<code>ViewChild</code>来获取临时DOM元素变量的DOM元素<code>@ViewChild('name')</code><button libCheck="9"
+              (click)="openLink('https://angular.cn/api/core/ViewChild')">官方文档</button><br>
+            它通过在模板上定义的DOM元素变量名来定位要获取的DOM元素。<br>
+            它的复数形式是<code>ViewChildren</code>。
+          </li>
+          <li>
+            通过装饰器<code>ContentChild</code>来获取符合指定CSS选择器的DOM元素<code>@ContentChild('#id')</code><button libCheck="10"
+              (click)="openLink('https://angular.cn/api/core/ContentChild')">官方文档</button><br>
+            它等同在当前宿主元素下使用<code>hostNode.querySelector('#id')</code><br>
+            它的复数形式是<code>ContentChildren</code>。
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="title">预设模板处理与回调</p>
+        <ul>
+          <li>
+            通过装饰器<code>HostBinding</code>来预设宿主元素的一些DOM属性（包括样式类）<button libCheck="11"
+              (click)="openLink('https://angular.cn/api/core/HostBinding')">官方文档</button><br>
+            通常被修饰的应该是一个成员变量，可使用getter作为它的逻辑处理。
+          </li>
+          <li>
+            通过装饰器<code>HostListener</code>来监听指定的DOM事件，并提供回调方法<button libCheck="12"
+              (click)="openLink('https://angular.cn/api/core/HostListener')">官方文档</button><br>
+            通常被修饰的应该是一个函数，如下：<br>
+            <app-code-sample class="s">
+              @HostListener('mousedown')<br>
+              dragThis() &#123;<br>
+              &nbsp;&nbsp;// ...做点什么<br>
+              &#125;
+            </app-code-sample>
+          </li>
+          <li>
+            通过装饰器<code>Input</code>来预设该组件可接收的属性<br>
+            通常被修饰的应该是一个成员变量，但也可使用setter作为它的逻辑处理。
+          </li>
+          <li>
+            通过装饰器<code>Output</code>来预设该组件可输出的事件<br>
+            通常被修饰的应该是一个类型为EventEmitter的成员变量。
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</app-course>

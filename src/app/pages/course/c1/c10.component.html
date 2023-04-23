@@ -2,27 +2,64 @@
   <div libThrough>
     <div>
       <p class="title">
-        Angular中的组件<button libCheck="1" (click)="openLink('https://angular.cn/guide/component-overview')">
+        Angular中的组件<button (click)="openLink('https://angular.cn/guide/component-overview')">
           官方文档
         </button>
       </p>
-      <p class="title">
-        Angular中的指令<button libCheck="1" (click)="openLink('https://angular.cn/guide/built-in-directives')">
-          官方文档
-        </button>
-      </p>
-      <p class="title">
-        大纲应该是直接简单介绍组件的分类
-      </p>
+      <p>组件是Angular应用的主要构造块。每个组件包括如下部分：</p>
       <ul>
-        <li>模板（仅组件）</li>
-        <li>样式（仅组件）</li>
-        <li>定义的ts类</li>
-        <li>css选择器</li>
-        <li>组件排他，指令不排他，甚至还可以复合</li>
-        <li>指令有两种分类：结构型、属性型…的代码风格规范。当然…也没有硬性要求</li>
+        <li>一个基于HTML片段的模板，用于声明页面要渲染的内容<button (click)="openLink('/inline/course/c1-1')">如何使用Angular的模板</button></li>
+        <li>一个用于定义处理逻辑的TypeScript类</li>
+        <li>一个CSS选择器，用于定义组件在模板中的使用方式<br>通常可以使用以下几种选择器：
+          <ul class="s">
+            <li>基于标签（Tag）的选择器 <app-code-sample class="xs">app-c10</app-code-sample></li>
+            <li>基于CSS类（Class）的选择器 <app-code-sample class="xs">.app-c10</app-code-sample></li>
+            <li>基于属性（Attribute）的选择器 <app-code-sample class="xs">[app-c10]</app-code-sample></li>
+            <li>基于属性值（Attribute-Value）的选择器 <app-code-sample class="xs">[app-c=10]</app-code-sample></li>
+            <li>混合的选择器 <app-code-sample class="xs">app-sample.course[app-c=10]</app-code-sample></li>
+          </ul>
+        </li>
+        <li>
+          属于该模板的CSS样式，<br>
+          若在装饰器中设置了<code>encapsulation: ViewEncapsulation.None</code>则会变成全局样式。<br>
+          可参考：<button (click)="openLink('/inline/course/c1-5')">视图的变更检测与封装</button>
+        </li>
+        <li>额外的一些配置，参考装饰器<code>Component</code>与<code>Directive</code>的定义</li>
       </ul>
-      其他放在模板里讲……
+    </div>
+    <div>
+      <p class="title">Angular中的指令</p>
+      <p>
+        指令是为Angular应用程序中的元素添加额外行为的类。<br>
+        指令分为属性型指令和结构型指令。<br>
+        每个指令包括如下部分：
+      </p>
+      <ul class="s">
+        <li>一个用于定义处理逻辑的TypeScript类</li>
+        <li>一个CSS选择器，用于定义指令在模板中的使用方式，与组件相同，但又有一些代码风格上不同的要求</li>
+        <li>额外的一些配置，参考装饰器<code>Directive</code>的定义</li>
+      </ul>
+    </div>
+    <div>
+      <p class="title">
+        内置指令<button (click)="openLink('https://angular.cn/guide/built-in-directives')">
+          官方文档
+        </button>
+      </p>
+      <p>Angular已经包含了一些基础的内置指令，常用的内置指令如下：</p>
+      <ul class="s">
+        <li><code>NgIf</code>，结构型指令，用来控制部分模板的生成与否</li>
+        <li><code>NgFor</code>，结构型指令，用来循环生成部分模板</li>
+        <li><code>NgClass</code>，属性型指令，用来批量管理一系列CSS类的设置</li>
+        <li><code>NgStyle</code>，属性型指令，用来批量管理一系列CSS内联样式的设置</li>
+        <li><code>NgModel</code>（位于可选模块FormsModule），属性型指令，用来管理表单项目的值</li>
+        <li><code>RouterLink</code>（位于可选模块RouterModule），属性型指令，用来提供点击事件的默认路由处理</li>
+      </ul>
+      <p>
+        回顾：<button libCheck="1" (click)="openLink('https://angular.cn/api/common#%E6%8C%87%E4%BB%A4')">
+          官方提供的指令一览
+        </button>
+      </p>
     </div>
   </div>
 </app-course>
