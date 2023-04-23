@@ -7,6 +7,7 @@ import { DataService } from './shared/data.service';
 const routes: Routes = [
   {
     path: 'inline',
+    canActivateChild: [isChildWindow],
     loadChildren: () =>
       import('@pages/course/course.module').then((m) => m.CourseModule),
   },

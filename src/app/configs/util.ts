@@ -1,4 +1,5 @@
-import { ResolveFn } from '@angular/router';
+import { inject } from '@angular/core';
+import { ResolveFn, Router } from '@angular/router';
 import { COURSE_LIST } from '@app/configs/constants';
 
 /** 从path获得当前课程key */
@@ -15,8 +16,9 @@ export const getTitleByKey = (key: string) =>
 export const getTitleByRoute: ResolveFn<string> = (route) =>
   getTitleByKey(route.url[1].toString());
 
-/** 是子窗口吗？ */
-export const isChildWindow = () => window !== parent;
+/** 是子窗口吗？不是的话回根path */
+export const isChildWindow = () =>
+  window !== parent || inject(Router).parseUrl('/');
 
 /** 把二维json拆成一维后把key全抽出来 */
 export const courseKeyList = COURSE_LIST.reduce<string[]>(
