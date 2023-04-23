@@ -17,7 +17,6 @@ import { C12Component } from './c1/c12.component';
 import { C13Component } from './c1/c13.component';
 import { C14Component } from './c1/c14.component';
 import { C15Component } from './c1/c15.component';
-import { C16Component } from './c1/c16.component';
 import { C51Component } from './c5/c51.component';
 
 const courseComponents = [
@@ -32,7 +31,6 @@ const courseComponents = [
   C13Component,
   C14Component,
   C15Component,
-  C16Component,
 ];
 
 const routes = [

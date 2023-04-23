@@ -39,11 +39,11 @@ export const COURSE_LIST = [
       },
       {
         key: 'c1-2',
-        name: '组件的内容投影',
+        name: '内容投影与生命周期',
       },
       {
         key: 'c1-3',
-        name: '视图的生命周期',
+        name: '视图的变更检测与封装',
       },
       {
         key: 'c1-4',
@@ -51,10 +51,6 @@ export const COURSE_LIST = [
       },
       {
         key: 'c1-5',
-        name: '视图的变更检测与封装',
-      },
-      {
-        key: 'c1-6',
         name: '如何设计组件与指令',
       },
     ],

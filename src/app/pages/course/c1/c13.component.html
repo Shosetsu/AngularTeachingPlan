@@ -1,10 +1,41 @@
 <app-course>
   <div libThrough>
     <div>
-      <p class="title">
-        生命周期钩子<button libCheck="1" (click)="openLink('https://angular.cn/guide/lifecycle-hooks')">
-          官方文档
-        </button>
+      <p class="title">视图的变更检测</p>
+      <p>
+        变更检测是Angular检查你的应用程序状态是否已更改以及是否需要更新任何DOM的过程。<br>
+        大体而言，Angular会从上到下遍历你的组件，寻找更改。Angular会定期运行其变更检测机制，以便对数据模型的更改反映在应用程序的视图中。<br>
+        变更检测可以手动触发，也可以通过异步事件（比如用户交互或 XHR 自动完成）来触发。<br>
+        变更检测具有一种高度优化的性能，但如果应用程序过于频繁的运行它，它仍然会导致变慢。
+      </p>
+    </div>
+    <div>
+      <p class="title">慢周期处理</p>
+      <p>参考文档：<button libCheck="1"
+          (click)="openLink('https://angular.cn/guide/change-detection-slow-computations')">慢速计算</button>
+      </p>
+    </div>
+    <div>
+      <p class="title">如何控制视图的变更检测</p>
+      <p>
+        通常可以通过<code>@Component</code>装饰器中设置<code>changeDetection: ChangeDetectionStrategy.OnPush</code>来实现部分DOM子树的变更检测。<br>
+        <button libCheck="2" class="inline"
+          (click)="openLink('https://angular.cn/guide/change-detection-skipping-subtrees')">跳过组件子树</button>
+      </p>
+      <p>
+        也可以通过注入<code>inject(ChangeDetectorRef)</code>从而设计更加复杂而又多样性的视图检测。
+      </p>
+    </div>
+    <div>
+      <p class="title">使用ChangeDetectorRef</p>
+      <p>
+        <button libCheck="3" class="inline"
+          (click)="openLink('https://angular.cn/api/core/ChangeDetectorRef')">官方文档</button>
+      </p>
+    </div>
+    <div>
+      <p class="title">常见的错误周期使用例子</p>
+      <p><button libCheck="4" class="inline" (click)="openLink('https://angular.cn/errors/NG0100')">NG100错误</button>
       </p>
     </div>
   </div>

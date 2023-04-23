@@ -2,12 +2,69 @@
   <div libThrough>
     <div>
       <p class="title">
-        什么是内容投影<button libCheck="1" (click)="openLink('https://angular.cn/guide/content-projection')">
+        组件的内容投影<button libCheck="1" (click)="openLink('https://angular.cn/guide/content-projection')">
           官方文档
         </button>
       </p>
       <p>通常一般会使用的是单插槽内容投影与多插槽内容投影。</p>
       <p class="note">由上层组件向下层组件中投影的内容，属于上层组件的视图内容。编译器根据配置为其默认赋予的<code>ng_content</code>也是上层组件的内容。</p>
+    </div>
+    <div>
+      <p class="title">
+        视图的生命周期<button libCheck="1" (click)="openLink('https://angular.cn/guide/lifecycle-hooks')">
+          官方文档
+        </button>
+      </p>
+      <p class="title">通常，在视图的初始化过程中…</p>
+      <div class="detail">
+        <ul>
+          <li>获取上层元素给予的Input</li>
+          <li><button class="inline" (click)="openLink('https://angular.cn/api/core/OnChanges')">OnChanges(第一次)</button>
+          </li>
+          <li><button class="inline" (click)="openLink('https://angular.cn/api/core/OnInit')">OnInit</button></li>
+          <li><button class="inline" (click)="openLink('https://angular.cn/api/core/DoCheck')">DoCheck(第一次)</button>
+          </li>
+          <li>初始化上层组件的投影内容</li>
+          <li><button class="inline"
+              (click)="openLink('https://angular.cn/api/core/AfterContentInit')">AfterContentInit</button></li>
+          <li><button class="inline"
+              (click)="openLink('https://angular.cn/api/core/AfterContentChecked')">AfterContentChecked(第一次)</button>
+          </li>
+          <li>初始化宿主元素上挂载的所有视图</li>
+          <li><button class="inline"
+              (click)="openLink('https://angular.cn/api/core/AfterViewInit')">AfterViewInit</button></li>
+          <li><button class="inline"
+              (click)="openLink('https://angular.cn/api/core/AfterViewChecked')">AfterViewChecked(第一次)</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <p class="title">在视图的正常使用过程中…</p>
+      <div class="detail">
+        <ul>
+          <li>来自zone的变更检测</li>
+          <li><button class="inline" (click)="openLink('https://angular.cn/api/core/OnChanges')">OnChanges(匹配时)</button>
+          </li>
+          <li><button class="inline" (click)="openLink('https://angular.cn/api/core/DoCheck')">DoCheck(每次)</button></li>
+          <li>等待投影内容刷新</li>
+          <li><button class="inline"
+              (click)="openLink('https://angular.cn/api/core/AfterContentChecked')">AfterContentChecked(每次)</button>
+          </li>
+          <li>等待视图内容刷新</li>
+          <li><button class="inline"
+              (click)="openLink('https://angular.cn/api/core/AfterViewChecked')">AfterViewChecked(每次)</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <p class="title">视图的销毁…</p>
+      <div class="detail">
+        <ul>
+          <li><button class="inline" (click)="openLink('https://angular.cn/api/core/OnDestroy')">OnDestroy</button>
+        </ul>
+      </div>
     </div>
   </div>
 </app-course>
