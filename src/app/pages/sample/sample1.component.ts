@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-sample1',
   templateUrl: './sample1.component.html',
   styleUrls: ['./sample.component.scss'],
 })
-export class Sample1Component implements OnInit {
+export class Sample1Component {
   no = location.pathname.match(/\d+$/)?.[0] ?? '';
 
   sample1Value = '1';
@@ -16,9 +16,6 @@ export class Sample1Component implements OnInit {
     (window as any).isInside = () => NgZone.isInAngularZone();
     (window as any).updateSample1Value = (val: string) =>
       (this.sample1Value = val);
-  }
-
-  ngOnInit(): void {
     setTimeout(() => (this.sample1Value = '2'), 5000);
   }
 }
