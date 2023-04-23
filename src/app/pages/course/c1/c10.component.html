@@ -10,7 +10,8 @@
       <ul>
         <li>一个基于HTML片段的模板，用于声明页面要渲染的内容<button (click)="openLink('/inline/course/c1-1')">如何使用Angular的模板</button></li>
         <li>一个用于定义处理逻辑的TypeScript类</li>
-        <li>一个CSS选择器，用于定义组件在模板中的使用方式<br>通常可以使用以下几种选择器：
+        <li>一个CSS选择器，用于定义组件在模板中的使用方式
+          <p>通常可以使用以下几种选择器：</p>
           <ul class="s">
             <li>基于标签（Tag）的选择器 <app-code-sample class="xs">app-c10</app-code-sample></li>
             <li>基于CSS类（Class）的选择器 <app-code-sample class="xs">.app-c10</app-code-sample></li>
@@ -18,26 +19,29 @@
             <li>基于属性值（Attribute-Value）的选择器 <app-code-sample class="xs">[app-c=10]</app-code-sample></li>
             <li>混合的选择器 <app-code-sample class="xs">app-sample.course[app-c=10]</app-code-sample></li>
           </ul>
+          <p>从路由输出组件时，如果组件的选择没有设定基于标签的选择器时，路由会使用<code>&lt;div&gt;</code>作为默认的宿主DOM元素标签来生成对应的DOM结构。</p>
         </li>
         <li>
-          属于该模板的CSS样式，<br>
+          一个属于该模板的CSS样式，<br>
           若在装饰器中设置了<code>encapsulation: ViewEncapsulation.None</code>则会变成全局样式。<br>
           可参考：<button (click)="openLink('/inline/course/c1-5')">视图的变更检测与封装</button>
         </li>
-        <li>额外的一些配置，参考装饰器<code>Component</code>与<code>Directive</code>的定义</li>
+        <li>以及一些额外的配置，参考装饰器<code>Component</code>与<code>Directive</code>的定义</li>
       </ul>
     </div>
     <div>
       <p class="title">Angular中的指令</p>
       <p>
         指令是为Angular应用程序中的元素添加额外行为的类。<br>
-        指令分为属性型指令和结构型指令。<br>
+        指令分为属性型指令和结构型指令。
+      </p>
+      <p>
         每个指令包括如下部分：
       </p>
       <ul class="s">
         <li>一个用于定义处理逻辑的TypeScript类</li>
         <li>一个CSS选择器，用于定义指令在模板中的使用方式，与组件相同，但又有一些代码风格上不同的要求</li>
-        <li>额外的一些配置，参考装饰器<code>Directive</code>的定义</li>
+        <li>以及一些额外的配置，参考装饰器<code>Directive</code>的定义</li>
       </ul>
     </div>
     <div>
@@ -60,6 +64,16 @@
           官方提供的指令一览
         </button>
       </p>
+    </div>
+    <div>
+      <p class="title">
+        视图组合<button libCheck="2" (click)="openLink('https://angular.cn/guide/directive-composition-api')">
+          指令组合 API
+        </button>
+      </p>
+      <p>视图本身可以组合，可以多个视图共用一个宿主DOM元素。</p>
+      <p>组件因为拥有模板，通常是一个组件和多个指令构成的视图组合。</p>
+      <p>通过装饰器中<code>hostDirectives</code>的值来设置该视图（组件或指令）默认搭载的其他指令。</p>
     </div>
   </div>
 </app-course>

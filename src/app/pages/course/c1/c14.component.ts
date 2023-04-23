@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CourseDetailComponent } from '@pages/course/course-detail.component';
 
 @Component({
-  selector: 'app-c10',
-  templateUrl: './c10.component.html',
+  selector: 'app-c14',
+  templateUrl: './c14.component.html',
 })
-export class C10Component extends CourseDetailComponent {}
+export class C14Component extends CourseDetailComponent {}

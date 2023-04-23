@@ -53,6 +53,10 @@ export const COURSE_LIST = [
         key: 'c1-5',
         name: '视图的变更检测与封装',
       },
+      {
+        key: 'c1-6',
+        name: '如何设计组件与指令',
+      },
     ],
   },
   {

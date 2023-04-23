@@ -13,6 +13,11 @@ import { C03Component } from './c0/c03.component';
 import { C04Component } from './c0/c04.component';
 import { C10Component } from './c1/c10.component';
 import { C11Component } from './c1/c11.component';
+import { C12Component } from './c1/c12.component';
+import { C13Component } from './c1/c13.component';
+import { C14Component } from './c1/c14.component';
+import { C15Component } from './c1/c15.component';
+import { C16Component } from './c1/c16.component';
 import { C51Component } from './c5/c51.component';
 
 const courseComponents = [
@@ -23,7 +28,11 @@ const courseComponents = [
   C04Component,
   C10Component,
   C11Component,
-  C51Component,
+  C12Component,
+  C13Component,
+  C14Component,
+  C15Component,
+  C16Component,
 ];
 
 const routes = [
@@ -32,11 +41,12 @@ const routes = [
     path: 'course/' + courseKeyList[index],
     component,
   })),
+  { title: getTitleByRoute, path: 'course/c5-1', component: C51Component },
   { title: getTitleByRoute, path: 'course/:cid', component: CourseComponent },
 ];
 
 @NgModule({
-  declarations: [...courseComponents, CourseComponent],
+  declarations: [...courseComponents, C51Component, CourseComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

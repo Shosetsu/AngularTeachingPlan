@@ -7,9 +7,10 @@
         </button>
       </p>
       <p>
-        在Angular中，模板是用户界面(UI)片段的蓝图。模板是用<code>HTML</code>编写的，可以在模板中使用特殊语法来构建Angular的许多特性。<br>
+        在Angular中，模板是用户界面(UI)片段的蓝图。模板是用<code>HTML(HyperText Markup Language)</code>编写的，可以在模板中使用特殊语法来构建Angular的许多特性。<br>
         几乎所有<code>HTML</code>语法都是有效的模板语法。但是，由于Angular模板只是UI的一个片段，因此它不包含<code>&lt;html&gt;</code>、<code>&lt;body&gt;</code>或<code>&lt;base&gt;</code>等元素。<br>
-        顺带一提，SVG也可以作为Angular的模板来使用。
+        顺带一提，正如最新HTML规范对SVG的支持那般，SVG也可以作为Angular的模板来使用。<br>
+        不过，SVG因为本身便可以是HTML的一部分，因此声明一个SVG模板或包含SVG内容的HTML模板时，需要保留<code>&lt;svg&gt;</code>标志。
       </p>
     </div>
     <div>
@@ -28,7 +29,7 @@
             它的类型是Event，具体分类可参考由TsLib提供的<code>addEventListener</code>的文档。
           </li>
           <li>
-            通过井号<code>#name</code>的声明，可以获得一个模板内可用的临时DOM元素变量<code>name</code>。<br>
+            通过井号<code>#name</code>声明的模板引用变量<code>name</code>。<br>
             它的类型是实际继承了<code>HTMLElement</code>的类型。（例如HTMLDivElement）
           </li>
           <li>
@@ -113,6 +114,18 @@
       </ul>
     </div>
     <div>
+      <p class="title">模板表达式的本质就是<code>eval(表达式)</code></p>
+      <p>
+        双花括号：<code>String(eval(表达式))</code>定义为<code>()=>string</code>。
+      </p>
+      <p>
+        方括号：<code>eval(表达式)</code>定义为<code>()=>T</code>。
+      </p>
+      <p>
+        圆括号：<code>eval(表达式)</code>定义为<code>($event)=>any</code>。
+      </p>
+    </div>
+    <div>
       <p class="title">在Angular视图（TypeScript类）中使用它拥有模板</p>
       <div>
         <p class="title">获取模板上的DOM元素</p>
@@ -122,20 +135,31 @@
               (click)="openLink('https://angular.cn/api/core/ElementRef#security-risk')">安全风险</button>
           </li>
           <li>
-            通过注入<code>TemplateRef</code>来获取当前宿主元素中的内嵌模板<code>inject(TemplateRef<?>)</code><button
+            通过注入<code>TemplateRef</code>来获取当前宿主元素中的内嵌模板<code>inject(TemplateRef&lt;unknown&gt;)</code><button
               (click)="openLink('https://angular.cn/api/core/TemplateRef')">官方文档</button>
           </li>
           <li>
-            通过装饰器<code>ViewChild</code>来获取临时DOM元素变量的DOM元素<code>@ViewChild('name')</code><button libCheck="9"
-              (click)="openLink('https://angular.cn/api/core/ViewChild')">官方文档</button><br>
-            它通过在模板上定义的DOM元素变量名来定位要获取的DOM元素。<br>
-            它的复数形式是<code>ViewChildren</code>。
+            通过注入<code>ViewContainerRef</code>来获取当前宿主元素上挂载的所有视图句柄<code>inject(ViewContainerRef)</code><button
+              (click)="openLink('https://angular.cn/api/core/ViewContainerRef')">官方文档</button>
           </li>
           <li>
-            通过装饰器<code>ContentChild</code>来获取符合指定CSS选择器的DOM元素<code>@ContentChild('#id')</code><button libCheck="10"
+            通过装饰器<code>ViewChild</code>来获取DOM元素<code>@ViewChild('name')</code><button libCheck="9"
+              (click)="openLink('https://angular.cn/api/core/ViewChild')">官方文档</button><br>
+            它通过以下几种选择器来获取DOM元素，不过只在当前视图的模板中进行检索。<br>
+            它的复数形式是<code>ViewChildren</code>,它的初始化需要等待到<code>AfterViewInit</code>。
+            <ul class="s">
+              <li>视图的类名，可以获得视图类对象</li>
+              <li>模板引用变量，根据情况可以获得视图类对象或ElementRef对象</li>
+              <li>注入类（函数），可以获得注入对象</li>
+              <li>注入变量，可以获得注入对象</li>
+              <li>TemplateRef，可以获得TemplateRef对象</li>
+            </ul>
+          </li>
+          <li>
+            通过装饰器<code>ContentChild</code>来获取DOM元素<code>@ContentChild('#id')</code><button libCheck="10"
               (click)="openLink('https://angular.cn/api/core/ContentChild')">官方文档</button><br>
-            它等同在当前宿主元素下使用<code>hostNode.querySelector('#id')</code><br>
-            它的复数形式是<code>ContentChildren</code>。
+            它和ViewChild相仿，但它可以作用于当前视图下所有子视图的内容。<br>
+            它的复数形式是<code>ContentChildren</code>，它的初始化需要等待到<code>AfterContentInit</code>。
           </li>
         </ul>
       </div>
@@ -148,7 +172,7 @@
             通常被修饰的应该是一个成员变量，可使用getter作为它的逻辑处理。
           </li>
           <li>
-            通过装饰器<code>HostListener</code>来监听指定的DOM事件，并提供回调方法<button libCheck="12"
+            通过装饰器<code>HostListener</code>来监听宿主元素中指定的DOM事件，并提供回调方法<button libCheck="12"
               (click)="openLink('https://angular.cn/api/core/HostListener')">官方文档</button><br>
             通常被修饰的应该是一个函数，如下：<br>
             <app-code-sample class="s">
