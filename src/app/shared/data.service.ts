@@ -9,6 +9,10 @@ export class DataService {
   private mainKey = 'atp-data';
 
   constructor() {
+    this.loadData();
+  }
+
+  loadData(): void {
     this.data = JSON.parse(localStorage.getItem(this.mainKey) ?? '{}');
   }
 

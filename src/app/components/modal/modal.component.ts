@@ -36,6 +36,11 @@ export class ModalComponent implements OnInit, OnDestroy {
       this.safeUrl = this.ds.bypassSecurityTrustResourceUrl(url);
       this.visible = true;
     });
+    document.addEventListener('keyup', (event) => {
+      if (event.ctrlKey && event.key === 'q') {
+        this.visible = !this.visible;
+      }
+    });
   }
 
   ngOnDestroy(): void {
