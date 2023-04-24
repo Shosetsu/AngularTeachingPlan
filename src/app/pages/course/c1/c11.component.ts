@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CourseDetailComponent } from '@pages/course/course-detail.component';
 
 @Component({
