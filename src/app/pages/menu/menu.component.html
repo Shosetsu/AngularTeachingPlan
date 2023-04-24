@@ -4,7 +4,7 @@
     <a class="github" href="https://github.com/Shosetsu/AngularTeachingPlan" target="_blank"></a>
   </section>
   <section class="menu-list" [libResizable]="main" [resizableType]="['right']">
-    <div class="menu-box">
+    <div #menu class="menu-box">
       <div class="course" *ngFor="let course of courseList"
         [class.completed]="getProcessNumber(course) === course.detail.length" [ngStyle]="{
           'background-color':
