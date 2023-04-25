@@ -29,4 +29,66 @@
             画面会直接更新，该外部方法也被标记为AngularZone<br>
         </div>
     </div>
+    <div *ngIf="no==='2'">
+        <div>
+            <p>这里放一个生命周期监控用的示例组件</p>
+            <app-lifecycle *ngIf="showLife2" [memoried]="infoList2"></app-lifecycle>
+            <div>
+                <button (click)="infoList2=[]">点这里重设记录</button>
+                <button (click)="undefined">点这个按钮什么都不会发生，但是可以刷新输出内容</button>
+                <button (click)="showLife2=!showLife2">点这里删除或添加生命周期示例组件</button>
+            </div>
+            <p>下面是它的输出结果。</p>
+            <ul>
+                <li *ngFor="let log of infoList2">{{log}}</li>
+            </ul>
+        </div>
+    </div>
+    <div *ngIf="no==='3'">
+        <form [formGroup]="form3">
+            <div>
+                a1(input/text): <input type="text"
+                    [formControl]="form3.controls.a1"><span>{{form3.controls.a1.value}}</span>
+                <app-error-info [control]="form3.controls.a1"></app-error-info>
+            </div>
+            <div>
+                a2(input/checkbox): <input type="checkbox"
+                    [formControl]="form3.controls.a2"><span>{{form3.controls.a2.value}}</span>
+                <app-error-info [control]="form3.controls.a2"></app-error-info>
+            </div>
+            <div>
+                a3(input/radio): <input type="radio" value="one" [formControl]="form3.controls.a3"><input type="radio"
+                    value="two" [formControl]="form3.controls.a3"><span>{{form3.controls.a3.value}}</span>
+                <app-error-info [control]="form3.controls.a3"></app-error-info>
+            </div>
+            <div>
+                a4(input/date): <input type="date"
+                    [formControl]="form3.controls.a4"><span>{{form3.controls.a4.value}}</span>
+                <app-error-info [control]="form3.controls.a4"></app-error-info>
+            </div>
+            <div>
+                a5(input/range): <input type="range"
+                    [formControl]="form3.controls.a5"><span>{{form3.controls.a5.value}}</span>
+                <app-error-info [control]="form3.controls.a5"></app-error-info>
+            </div>
+            <div>
+                a6(input/color): <input type="color"
+                    [formControl]="form3.controls.a6"><span>{{form3.controls.a6.value}}</span>
+                <app-error-info [control]="form3.controls.a6"></app-error-info>
+            </div>
+            <div>
+                a7(textarea): <textarea
+                    [formControl]="form3.controls.a7"></textarea><span>{{form3.controls.a7.value}}</span>
+                <app-error-info [control]="form3.controls.a7"></app-error-info>
+            </div>
+            <div>
+                a8(select): <select [formControl]="form3.controls.a8">
+                    <option value="First">First</option>
+                    <option value="Last">Last</option>
+                </select><span>{{form3.controls.a8.value}}</span>
+                <app-error-info [control]="form3.controls.a8"></app-error-info>
+            </div>
+        </form>
+
+    </div>
 </section>

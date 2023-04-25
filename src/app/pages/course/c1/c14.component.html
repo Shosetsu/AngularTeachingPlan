@@ -1,8 +1,24 @@
 <app-course>
   <div libThrough>
     <div>
-      <p class="title">
-        ...
+      <p class="title">什么是表单</p>
+      <p>
+        表单（Form），通常是是以&lt;form&gt;作为载体，包含了一系列<button class="inline" libCheck="1"
+          (click)="openLink('https://www.w3school.com.cn/html/html_form_elements.asp')">H5原生表单元素</button>构成的。
+      </p>
+      <p class="title">Angular是如何处理表单的？</p>
+      <p>
+        在Angular中，使用表单最简单的方式就是导入<code>FormsModule</code>，它提供了一系列基础的针对表单的指令，通过这些指令来设计与使用表单的方式也被称为“模板驱动型表单”。<br>
+        而另外一种更加项目管理友好，并且被广为推荐的形式则是“响应式表单”。<br>
+        我们可以通过官方的描述简单了解这两种设计方式的区别。<button libCheck="2"
+          (click)="openLink('https://angular.cn/guide/forms-overview')">Angular表单简介</button>
+
+      </p>
+    </div>
+    <div>
+      <p class="title">举个例子试一试</p>
+      <p>
+        <button class="inline" libCheck="3" (click)="openLink('/sample/3')">试一试</button>
       </p>
     </div>
   </div>
