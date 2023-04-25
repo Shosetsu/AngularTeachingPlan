@@ -18,6 +18,10 @@ import { C13Component } from './c1/c13.component';
 import { C14Component } from './c1/c14.component';
 import { C15Component } from './c1/c15.component';
 import { C51Component } from './c5/c51.component';
+import { C20Component } from './c2/c20.component';
+import { C21Component } from './c2/c21.component';
+import { C22Component } from './c2/c22.component';
+import { C23Component } from './c2/c23.component';
 
 const courseComponents = [
   C00Component,
@@ -31,6 +35,10 @@ const courseComponents = [
   C13Component,
   C14Component,
   C15Component,
+  C20Component,
+  C21Component,
+  C22Component,
+  C23Component,
 ];
 
 const routes = [
