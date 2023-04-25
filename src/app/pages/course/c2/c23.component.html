@@ -1,8 +1,35 @@
 <app-course>
   <div libThrough>
     <div>
-      <p class="title">
-        ...
+      <p class="title">如何定义一个管道</p>
+      <p>可参考声明管道使用的装饰器<code>@Pipe</code>的定义：</p>
+      <ul>
+        <li><code>name</code>管道在实际使用中的代名</li>
+        <li><code>pure</code>用来控制管道的变更检测策略</li>
+        <li><code>standalone</code>Angular15新增独立模块的功能</li>
+      </ul>
+      <p>为了让自定义管道可以有效的被Angular框架所识别并启用，还需要实现<code>PipeTransform</code>接口中预设的<code>transform</code>函数。</p>
+      <p>当然……最简单的还是直接使用Angular CLI。使用如下命令。</p>
+      <app-code-sample>ng g p example</app-code-sample>
+    </div>
+    <div>
+      <p class="title">纯管道与非纯管道的区别</p>
+      <p><button class="inline" libCheck="1"
+          (click)="openLink('https://angular.cn/guide/pipes#detecting-changes-with-data-binding-in-pipes')">官方文档</button>
+      </p>
+    </div>
+    <div>
+      <p class="title">试一试刚才做的临时管道吧</p>
+      <p>尝试通过代码实现让输入字符全部unicode+1再输出吧。</p>
+      <p>
+        <button class="inline" libCheck="2" (click)="openLink('/sample/4')">试一试</button>
+      </p>
+    </div>
+    <div>
+      <p class="title">用管道处理异步数据</p>
+      <p>内置管道<code>AsyncPipe</code>提供了一个简单而又基础的异步处理功能。它可以简单将一个<code>Observable</code>对象处理成期待的最新值。</p>
+      <p>
+        <button class="inline" libCheck="3" (click)="openLink('/sample/5')">试一试</button>
       </p>
     </div>
   </div>

@@ -89,6 +89,19 @@
                 <app-error-info [control]="form3.controls.a8"></app-error-info>
             </div>
         </form>
-
+    </div>
+    <div *ngIf="no==='4'">
+        <div>
+            <p>下面有一段话，用新做的管道编辑它吧。</p>
+            <p style="white-space: pre-line;">{{paragraph4}}</p>
+        </div>
+    </div>
+    <div *ngIf="no==='5'">
+        <div>
+            <p>下面有一个可观测对象，使用<code>async</code>管道进行处理。</p>
+            <p>>>{{ob5 | async}}<<</p>
+            <p>每隔3秒会自动发布一次新值。也可以通过下面按钮手动给一个值。</p>
+            <p><button class="inline" (click)="nextValue5()">点击按钮会为上面的观测对象准备一个新值</button></p>
+        </div>
     </div>
 </section>

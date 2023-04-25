@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from '@components/_components.module';
 import { ErrorInfoComponent } from './sample-component/error-info.component';
 import { LifecycleComponent } from './sample-component/lifecycle.component';
+import { PipesModule } from '@pipes/_pipes.module';
+import { DirectivesModule } from '@directives/_directives.module';
 
 const routes: Routes = [{ path: ':sid', component: SampleComponent }];
 
@@ -16,6 +18,8 @@ const routes: Routes = [{ path: ':sid', component: SampleComponent }];
     FormsModule,
     ReactiveFormsModule,
     ComponentsModule,
+    PipesModule,
+    DirectivesModule,
     RouterModule.forChild(routes),
   ],
 })

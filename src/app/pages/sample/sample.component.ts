@@ -2,6 +2,7 @@
 import { Component, NgZone } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, interval } from 'rxjs';
 
 @Component({
   selector: 'app-sample',
@@ -26,6 +27,10 @@ export class SampleComponent {
     a8: new FormControl(''),
   });
 
+  paragraph4 = `可观察对象能让你在应用的各个部分之间传递消息。建议在事件处理、异步编程以及处理多个值时使用这些可观察对象。可观察对象可以提供任意类型的单个或多个值，可以是同步的（作为一个函数为它的调用者提供一个值），也可以是异步的。\nObservables let you pass messages between parts of your application. Observables are recommended for event handling, asynchronous programming, and handling multiple values. Observables can deliver single or multiple values of any type, either synchronously (as a function delivers a value to its caller) or asynchronously on a schedule.`;
+
+  ob5 = new BehaviorSubject<string>('可观测初始值');
+
   constructor(private ngZone: NgZone, private route: ActivatedRoute) {
     (window as any).runInside = (fn: () => void) => this.ngZone.run(() => fn());
     (window as any).isInside = () => NgZone.isInAngularZone();
@@ -36,5 +41,15 @@ export class SampleComponent {
     this.route.params.subscribe((parm) => {
       this.no = parm['sid'];
     });
+
+    interval(3000).subscribe((index) => {
+      this.ob5.next(`这是来自3秒一次的自动化更新值，次数：${index + 1}`);
+    });
+  }
+
+  nextValue5(): void {
+    this.ob5.next(
+      `这是来自手动的更新值，随机数（1~100）：${Math.round(Math.random() * 100)+1}`
+    );
   }
 }
