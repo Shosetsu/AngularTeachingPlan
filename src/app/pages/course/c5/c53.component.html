@@ -1,0 +1,60 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">
+        JavaScript/TypeScript中的基本类型
+      </p>
+      <p>通常有如下几种：</p>
+      <ul>
+        <li>字符串
+          <ul>
+            <li>常见单引号 - <app-code-sample class="xs">let string = 'single'</app-code-sample></li>
+            <li>类Java双引号 - <app-code-sample class="xs">let string = "double"</app-code-sample></li>
+            <li>模板式 - <app-code-sample class="xs">let string = `template`</app-code-sample></li>
+          </ul>
+          模板式中可通过<code>$&#123;varName&#125;</code>来引用上下文的变量，以及可以在模板式中自然换行等价于<code>\n</code>。<br>
+          <button class="inline" libCheck="1" (click)="openLink('https://www.w3school.com.cn/js/js_strings.asp')">
+            中文W3School文档
+          </button><br>
+          符合最新语法的转换方式：<code>String(...)</code>
+        </li>
+        <li>
+          数值 - <app-code-sample class="xs">let number = 3.1415926</app-code-sample><br>
+          要注意JS中的数值类型永远是64位浮点数。<br>
+          <button class="inline" libCheck="2" (click)="openLink('https://www.w3school.com.cn/js/js_numbers.asp')">
+            中文W3School文档
+          </button><br>
+          符合最新语法的转换方式：<code>Number(...)</code>
+        </li>
+        <li>
+          布尔值 - <app-code-sample class="xs">let boolean = true</app-code-sample><br>
+          符合最新语法的转换方式：<code>Boolean(...)</code>
+        </li>
+        <li>
+          数组 - <app-code-sample class="xs">let array = [1,false]</app-code-sample><br>
+          符合最新语法的转换方式：<code>Array.from(arrayLike)</code><br>
+          符合最新语法的浅复制方式：<app-code-sample class="xs">[...array]</app-code-sample>
+        </li>
+        <li>
+          对象 - <app-code-sample class="xs">let object = &#123;a:1,b:false&#125;</app-code-sample><br>
+          符合最新语法的浅复制方式：<app-code-sample class="xs">&#123;...object&#125;</app-code-sample>
+        </li>
+        <li>
+          函数 - <app-code-sample class="xs">let function = function(args)&#123;...&#125;</app-code-sample><br>
+          或箭头函数（引用上下文需要）：<app-code-sample class="xs">let arrFunction = (args)=>&#123;...&#125;</app-code-sample>
+        </li>
+        <li>
+          唯一标识 - <app-code-sample class="xs">let symbol = Symbol('symbol')</app-code-sample><br>
+          它等价于对它指针的唯一标识，除了获取它的指针，否则永远不可能有任何东西与它相等。<br>
+          <app-code-sample class="xs">Symbol('symbol') != Symbol('symbol')</app-code-sample>=>true
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p class="title">
+        TypeScript的类型操作
+      </p>
+      <p>TODO...</p>
+    </div>
+  </div>
+</app-course>

@@ -4,7 +4,16 @@
       <p class="title">
         TypeScript中的DOM操作
       </p>
-      <p>TODO...</p>
+      <p>
+        众所周知，TypeScript强调了自己不会去影响原本JavaScript的动作，因此所有JavaScript中对DOM的操作，在TypeScript中都是依然可用的。<br>
+        但要注意一些类型上的提示细节（这也可以大幅降低开发者写错代码的可能性）。<br>
+        在学习与开发调试中，我们通常可以通过浏览器控制台来进行DOM操作的确认。
+      </p>
+      <p>
+        特别注意，在浏览器控制台JS中的一些隐式操作也许是可以执行的，但是在TS环境下会无法正常被编译器理解。（尽管通过设置TS的检查等级是可以关闭这些类型错误，但关了和用JS有什么区别呢）<br>
+        例如，<code>document.querySelectorAll</code>的返回值类型是<code>NodeList</code>，属于<code>ArrayLike</code>但不是<code>Array</code>。<br>
+        在控制台中也许可以通过<code>for ... of</code>来使用但是在TS中则需要先使用<code>Array.from</code>进行类型断言。
+      </p>
     </div>
     <div>
       <p class="title">
@@ -46,6 +55,12 @@
           element.style.removeProperty(`--resize-$&#123;type&#125;`);
         </app-code-sample>
       </p>
+    </div>
+    <div>
+      <p class="title">HTML事件</p>
+      <p><button libCheck="3" (click)="openLink('https://www.w3school.com.cn/jsref/dom_obj_event.asp')">
+          事件一览
+        </button></p>
     </div>
   </div>
 </app-course>

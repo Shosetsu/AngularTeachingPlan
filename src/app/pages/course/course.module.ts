@@ -17,11 +17,15 @@ import { C12Component } from './c1/c12.component';
 import { C13Component } from './c1/c13.component';
 import { C14Component } from './c1/c14.component';
 import { C15Component } from './c1/c15.component';
-import { C51Component } from './c5/c51.component';
 import { C20Component } from './c2/c20.component';
 import { C21Component } from './c2/c21.component';
 import { C22Component } from './c2/c22.component';
 import { C23Component } from './c2/c23.component';
+import { C50Component } from './c5/c50.component';
+import { C51Component } from './c5/c51.component';
+import { C52Component } from './c5/c52.component';
+import { C53Component } from './c5/c53.component';
+import { C54Component } from './c5/c54.component';
 
 const courseComponents = [
   C00Component,
@@ -41,18 +45,30 @@ const courseComponents = [
   C23Component,
 ];
 
+const tempCourseFrom5 = [
+  C50Component,
+  C51Component,
+  C52Component,
+  C53Component,
+  C54Component,
+];
+
 const routes = [
   ...courseComponents.map((component, index) => ({
     title: getTitleByRoute,
     path: 'course/' + courseKeyList[index],
     component,
   })),
-  { title: getTitleByRoute, path: 'course/c5-1', component: C51Component },
+  ...tempCourseFrom5.map((component, index) => ({
+    title: getTitleByRoute,
+    path: 'course/' + courseKeyList[index + 25],
+    component,
+  })),
   { title: getTitleByRoute, path: 'course/:cid', component: CourseComponent },
 ];
 
 @NgModule({
-  declarations: [...courseComponents, C51Component, CourseComponent],
+  declarations: [...courseComponents, ...tempCourseFrom5, CourseComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

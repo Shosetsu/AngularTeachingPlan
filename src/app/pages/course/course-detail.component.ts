@@ -11,7 +11,11 @@ export class CourseDetailComponent extends BaseComponent {
     this.baseHref = document.head.baseURI;
   }
 
-  openLink(url: string) {
+  openLink(url: string, openOther = false) {
+    if (openOther) {
+      open(url, '_blank');
+      return;
+    }
     this.modal.openLink(url.replace(/^\//, document.head.baseURI));
   }
 }

@@ -135,7 +135,7 @@ export const COURSE_LIST = [
     detail: [
       {
         key: 'c5-0',
-        name: '简介JavaScript与DOM的历史',
+        name: 'DOM与BOM',
       },
       {
         key: 'c5-1',
@@ -143,38 +143,34 @@ export const COURSE_LIST = [
       },
       {
         key: 'c5-2',
-        name: 'TypeScript的数据类型',
+        name: 'JavaScript知识入门',
       },
       {
         key: 'c5-3',
-        name: 'TypeScript的泛型',
+        name: 'JavaScript/TypeScript的类型',
       },
       {
         key: 'c5-4',
-        name: 'TypeScript类型操作（简略）',
-      },
-      {
-        key: 'c5-5',
         name: 'ES6~ES2021的新特性',
       },
       {
-        key: 'c5-6',
+        key: 'c5-5',
         name: '异步操作基础 Promise（承诺）',
       },
       {
-        key: 'c5-7',
+        key: 'c5-6',
         name: '异步操作基础 await async（语法糖：方法同步）',
       },
       {
-        key: 'c5-8',
+        key: 'c5-7',
         name: '异步操作进阶 RxJs - Observable（可观测的）',
       },
       {
-        key: 'c5-9',
+        key: 'c5-8',
         name: 'JavaScript/TypeScript中典型的数据处理方式',
       },
       {
-        key: 'c5-10',
+        key: 'c5-9',
         name: '高性能Angular - 多线程Worker',
       },
     ],

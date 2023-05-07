@@ -1,0 +1,60 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">
+        文档对象模型（Document Object Model）
+      </p>
+      <p>
+        DOM是W3C组织推荐的处理可扩展置标语言的标准编程接口（HTML和XML文档的编程接口）。<br>
+        它在JS中的对象通常是<code>window.document</code>（注意，这个是各个浏览器所实现的）。
+      </p>
+      <p>
+        <button class="inline" libCheck="1" (click)="openLink('https://www.w3school.com.cn/js/js_htmldom.asp')">
+          中文W3School文档
+        </button>
+      </p>
+    </div>
+    <div>
+      <p class="title">
+        浏览器对象模型（Browser Object Model）
+      </p>
+      <p>
+        不同于DOM，BOM并非拥有官方标准，但随着互联网的发展，渐渐的在各大浏览器开发者中也形成了一系列的标准。通常被称作是BOM。<br>
+        下面列举了一些常见的BOM对象。
+      </p>
+      <ul>
+        <li>
+          <button class="inline" (click)="openLink('https://www.w3school.com.cn/js/js_window.asp')">
+            window
+          </button> -
+          作为一个浏览器中的JS运行时，<code>window</code>总是存在的，所有的JS全局变量与函数都是它的成员。（但要注意，在浏览器以外的环境中并非如此，例如Node.JS中为之对应的则是<code>global</code>）
+        </li>
+        <li>
+          <button class="inline" (click)="openLink('https://www.w3school.com.cn/js/js_window_screen.asp')">
+            screen
+          </button> -
+          <code>screen</code>里保存着一些浏览器提供给当前页面运行时的一些用户屏幕、窗口相关的信息，但在可能的情况下也有可能会造成个人隐私泄露问题。
+        </li>
+        <li>
+          <button class="inline" (click)="openLink('https://www.w3school.com.cn/js/js_window_location.asp')">
+            location
+          </button> -
+          <code>location</code>通常用来控制页面重定向，或查询当前协议、路由路径等功能。可以把它看做是浏览器正上方地址栏的在JS运行时中的映射。
+        </li>
+        <li>
+          <button class="inline" (click)="openLink('https://www.w3school.com.cn/js/js_window_history.asp')">
+            history
+          </button> -
+          <code>history</code>通常用来后退或前进页面。可以把它看做是浏览器左上角页面控制按钮的在JS运行时中的映射。<br>
+          但要注意，由于用户历史记录里包含了大量的个人隐私信息，所以绝大多数浏览器都不会向JS运行时提供任何信息，例如Chrome就只会提供几个指定的方法。
+        </li>
+        <li>
+          <button class="inline" (click)="openLink('https://www.w3school.com.cn/js/js_window_navigator.asp')">
+            navigator
+          </button> -
+          JS运行时可以通过<code>navigator</code>去查询浏览器的各项数据或者是状态，抑或是通过浏览器向用户申请摄像头、麦克风等一系列媒体流。
+        </li>
+      </ul>
+    </div>
+  </div>
+</app-course>

@@ -1,0 +1,45 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">
+        关于JavaScript<button (click)="openLink('https://www.w3school.com.cn/js/index.asp',true)">中文自学文档</button>
+      </p>
+    </div>
+    <div>
+      <p class="title">JavaScript的声明</p>
+      <p>
+        在JavaScript运行时中所使用到的变量，都存在声明的步骤（这与Java相同）。<br>
+        但在非<button class="inline" libCheck="1"
+          (click)="openLink('https://www.w3school.com.cn/js/js_strict.asp')">JavaScript严格模式</button>下，对未主动声明的变量的访问均会被动生成一个全局变量的声明。
+      </p>
+      <p>在最新的JavaScript中，声明变量通常有以下三种方式。</p>
+      <ul>
+        <li>
+          全局声明<code>var variable;</code>（非严格模式下的被动声明也是如此）<br>
+          它分为全局作用域（在函数外声明时）、函数作用域（在函数内声明时）。
+        </li>
+        <li>
+          块作用域声明<code>let blockScope;</code><br>
+          它区分了块之间的作用域范围，相较var更加安全，即虽然会有变量隐藏(variable shadowing)问题，但至少不会覆盖了。<br>
+          常见块：由<code>if/switch</code>声明的块语句、由<code>for/while</code>声明的块语句、由箭头函数声明的块语句。<br>
+          在控制台（域为<code>window</code>）中使用let声明与var并无区别。
+        </li>
+        <li>
+          常量声明<code>const constants;</code><br>
+          它存在的一些特性也和Java等一些常见编程语言相同，例如一个数组或对象的常量，其被常量保证的仅仅只是引用指针，而指向的对象本身并非是一成不变的。<br>
+          在Angular中基本上所有的块内变量都是<code>const</code>，而Angular模板使用的TS定义类中的变量则是类的成员变量。
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p class="title">JavaScript的运算</p>
+      <p><button class="inline" libCheck="2"
+          (click)="openLink('https://www.w3school.com.cn/js/js_operators.asp')">JS运算符</button>
+
+      </p>
+    </div>
+    <div>
+      <p class="title">JavaScript的运算</p>
+    </div>
+  </div>
+</app-course>
