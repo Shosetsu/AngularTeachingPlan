@@ -8,7 +8,9 @@ export class CharCodePipe implements PipeTransform {
   transform(value: string, ...args: number[]): string {
     return value
       .split('')
-      .map((str) => String.fromCharCode(str.charCodeAt(0) + args[0]))
+      .map((str) =>
+        String.fromCharCode(str.charCodeAt(0) + args.reduce((p, c) => p + c, 0))
+      )
       .join('');
   }
 }

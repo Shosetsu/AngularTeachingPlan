@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
   selector: 'app-error-info',
   template: `<p
     class="error-info"
-    *ngFor="let error of control.errors | keyvalue"
+    *ngFor="let error of control.errors | keyvalue : originalOrder"
   >
     {{ error.key }}:{{ error.value | json }}
   </p>`,
@@ -21,4 +21,6 @@ import { FormControl } from '@angular/forms';
 })
 export class ErrorInfoComponent {
   @Input() control!: FormControl;
+
+  originalOrder = () => 0;
 }

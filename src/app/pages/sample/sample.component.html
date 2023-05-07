@@ -47,45 +47,39 @@
     <div *ngIf="no==='3'">
         <form [formGroup]="form3">
             <div>
-                a1(input/text): <input type="text"
-                    [formControl]="form3.controls.a1"><span>{{form3.controls.a1.value}}</span>
+                a1(input/text): <input type="text" formControlName="a1"><span>{{form3.controls.a1.value}}</span>
                 <app-error-info [control]="form3.controls.a1"></app-error-info>
             </div>
             <div>
-                a2(input/checkbox): <input type="checkbox"
-                    [formControl]="form3.controls.a2"><span>{{form3.controls.a2.value}}</span>
+                a2(input/checkbox): <input type="checkbox" formControlName="a2"><span>{{form3.controls.a2.value}}</span>
                 <app-error-info [control]="form3.controls.a2"></app-error-info>
             </div>
             <div>
                 a3(input/radio):
-                <input type="radio" value="one" [formControl]="form3.controls.a3">
-                <input type="radio" value="two" [formControl]="form3.controls.a3">
-                <input type="radio" value="three" [formControl]="form3.controls.a3">
+                <input type="radio" value="one" formControlName="a3">
+                <input type="radio" value="two" formControlName="a3">
+                <input type="radio" value="three" formControlName="a3">
                 <span>{{form3.controls.a3.value}}</span>
                 <app-error-info [control]="form3.controls.a3"></app-error-info>
             </div>
             <div>
-                a4(input/date): <input type="date"
-                    [formControl]="form3.controls.a4"><span>{{form3.controls.a4.value}}</span>
+                a4(input/date): <input type="date" formControlName="a4"><span>{{form3.controls.a4.value}}</span>
                 <app-error-info [control]="form3.controls.a4"></app-error-info>
             </div>
             <div>
-                a5(input/range): <input type="range"
-                    [formControl]="form3.controls.a5"><span>{{form3.controls.a5.value}}</span>
+                a5(input/range): <input type="range" formControlName="a5"><span>{{form3.controls.a5.value}}</span>
                 <app-error-info [control]="form3.controls.a5"></app-error-info>
             </div>
             <div>
-                a6(input/color): <input type="color"
-                    [formControl]="form3.controls.a6"><span>{{form3.controls.a6.value}}</span>
+                a6(input/color): <input type="color" formControlName="a6"><span>{{form3.controls.a6.value}}</span>
                 <app-error-info [control]="form3.controls.a6"></app-error-info>
             </div>
             <div>
-                a7(textarea): <textarea
-                    [formControl]="form3.controls.a7"></textarea><span>{{form3.controls.a7.value}}</span>
+                a7(textarea): <textarea formControlName="a7"></textarea><span>{{form3.controls.a7.value}}</span>
                 <app-error-info [control]="form3.controls.a7"></app-error-info>
             </div>
             <div>
-                a8(select): <select [formControl]="form3.controls.a8">
+                a8(select): <select formControlName="a8">
                     <option value="First">First</option>
                     <option value="Last">Last</option>
                 </select><span>{{form3.controls.a8.value}}</span>
@@ -96,7 +90,7 @@
     <div *ngIf="no==='4'">
         <div>
             <p>下面有一段话，用新做的管道编辑它吧。</p>
-            <p style="white-space: pre-line;">{{paragraph4 | charCode:0}}</p>
+            <p style="white-space: pre-line;">{{paragraph4 | charCode:-1:1}}</p>
         </div>
     </div>
     <div *ngIf="no==='5'">
