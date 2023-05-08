@@ -12,8 +12,8 @@ export class CourseDetailComponent extends BaseComponent {
   }
 
   openLink(url: string, openOther = false) {
-    if (openOther) {
-      open(url, '_blank');
+    if (openOther || (event as MouseEvent).altKey) {
+      open(url.replace(/^\//, document.head.baseURI), '_blank');
       return;
     }
     this.modal.openLink(url.replace(/^\//, document.head.baseURI));

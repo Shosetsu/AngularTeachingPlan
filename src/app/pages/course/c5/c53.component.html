@@ -2,9 +2,8 @@
   <div libThrough>
     <div>
       <p class="title">
-        JavaScript/TypeScript中的基本类型
+        JavaScript/TypeScript中的基本类型通常有如下几种：
       </p>
-      <p>通常有如下几种：</p>
       <ul>
         <li>字符串
           <ul>
@@ -54,7 +53,38 @@
       <p class="title">
         TypeScript的类型操作
       </p>
-      <p>TODO...</p>
+      <p>在TypeScript中一个很重要的关键字便是<code>type</code>，通过它开发者还可以随心所欲的根据情况来控制Angular语言服务（非Angular项目的TS语言服务）的类型提示。</p>
+      <p>
+        通常，在一个Angular应用程序中，type通常在以下场景中出现。
+      </p>
+      <ul>
+        <li>变量需要明确声明类型，<app-code-sample class="xs">const example1: &#123; a?: number; b?: string &#125; =
+            &#123;&#125;;</app-code-sample></li>
+        <li>函数事先声明参数返回值类型，<app-code-sample class="xs">function example2(a?: number; b?: string)
+            &#123;...&#125;</app-code-sample></li>
+        <li>使用泛型但不能自动类型断言时，<app-code-sample class="xs">array.reduce&lt;&#123; a : number
+            &#125;[]&gt;(...);</app-code-sample></li>
+        <li>手动进行类型断言的时候，
+          <app-code-sample class="xs">
+            filterFunctionA(test: unknown): test is number &#123;...&#125;<br>
+            array.filter(filterFunctionA);
+          </app-code-sample>
+        </li>
+      </ul>
+      <p class="title">
+        类型的交集与并集，还有简单运算
+      </p>
+      <p>在TypeScript中，类型可以进行一定程度简单的运算。可以参考下面这些。</p>
+      <ul>
+        <li>交集 （TypeA & TypeB）</li>
+        <li>并集 （TypeA | TypeB）</li>
+        <li><button class="inline" libCheck="3"
+            (click)="openLink('https://www.typescriptlang.org/docs/handbook/utility-types.html')">一些便捷工具操作（使用泛型）（英文）</button>
+        </li>
+        <li><button class="inline"
+            (click)="openLink('https://www.typescriptlang.org/docs/handbook/2/functions.html')">更多…（英文）</button>
+        </li>
+      </ul>
     </div>
   </div>
 </app-course>
