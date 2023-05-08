@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  private data: Record<string, any> = {};
+  private data: Record<string, unknown> = {};
   private mainKey = 'atp-data';
 
   constructor() {
@@ -16,12 +15,17 @@ export class DataService {
     this.data = JSON.parse(localStorage.getItem(this.mainKey) ?? '{}');
   }
 
-  setData(key: string, data: any): void {
+  setData(key: string, data: unknown): void {
     this.data[key] = data;
     localStorage.setItem(this.mainKey, JSON.stringify(this.data));
   }
 
   getData<T>(key: string, def: T): T {
-    return this.data[key] ?? def;
+    const data = this.data[key];
+    return this.trustType<T>(data) ? data : def;
+  }
+
+  private trustType<T>(value: unknown): value is T {
+    return Boolean(value);
   }
 }

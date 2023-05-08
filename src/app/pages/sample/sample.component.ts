@@ -19,10 +19,12 @@ export class SampleComponent {
   form3 = new FormGroup({
     a1: new FormControl('', [
       Validators.required,
-      Validators.pattern('^[a-z]*$'),
+      Validators.pattern('[a-z]*'),
     ]),
     a2: new FormControl(false, Validators.requiredTrue),
-    a3: new FormControl(''),
+    a3: new FormControl('', (con) =>
+      con.value === 'three' ? { three: 'error' } : null
+    ),
     a4: new FormControl(''),
     a5: new FormControl('', [Validators.max(50), Validators.min(10)]),
     a6: new FormControl(''),
