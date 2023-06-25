@@ -1,0 +1,33 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">什么是承诺（Promise）</p>
+      <p>
+        承诺最初是为了解决回调地狱（Callback Hell）所追加的一个语法糖性质的功能。
+      </p>
+      <p>
+        可以通过下面的文档简单了解Promise的概念和其用途。
+        <button libCheck="1"
+          (click)="openLink('https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises',true)">使用Promise</button>
+      </p>
+      <p>
+        通过下面详细的官方文档，可以深入理解Promise的各种特性，以及实践。
+        <button libCheck="2"
+          (click)="openLink('https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise',true)">官方文档</button>
+      </p>
+    </div>
+    <div>
+      <p class="title">
+        异步函数~语法糖（async ~ await）
+      </p>
+      <p>
+        从ES8（ES2017）开始，JavaScript中添加了async函数与在其中可用的await操作符。<br>
+        <button libCheck="3" class="inline"
+          (click)="openLink('https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function',true)">async函数</button>
+        <button libCheck="4"
+          (click)="openLink('https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/await',true)">await操作符</button><br>
+        通过async~await，开发者们可以用更简洁的方式来编写与维护自己的代码。
+      </p>
+    </div>
+  </div>
+</app-course>

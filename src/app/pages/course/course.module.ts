@@ -26,6 +26,7 @@ import { C51Component } from './c5/c51.component';
 import { C52Component } from './c5/c52.component';
 import { C53Component } from './c5/c53.component';
 import { C54Component } from './c5/c54.component';
+import { C55Component } from './c5/c55.component';
 
 const courseComponents = [
   C00Component,
@@ -51,6 +52,7 @@ const tempCourseFrom5 = [
   C52Component,
   C53Component,
   C54Component,
+  C55Component,
 ];
 
 const routes = [

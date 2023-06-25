@@ -155,22 +155,18 @@ export const COURSE_LIST = [
       },
       {
         key: 'c5-5',
-        name: '异步操作基础 Promise（承诺）',
+        name: '原生异步操作 Promise（承诺）',
       },
       {
         key: 'c5-6',
-        name: '异步操作基础 await async（语法糖：方法同步）',
+        name: 'Angular中的异步操作 RxJs - Observable（可观测的）',
       },
       {
         key: 'c5-7',
-        name: '异步操作进阶 RxJs - Observable（可观测的）',
-      },
-      {
-        key: 'c5-8',
         name: 'JavaScript/TypeScript中典型的数据处理方式',
       },
       {
-        key: 'c5-9',
+        key: 'c5-8',
         name: '高性能Angular - 多线程Worker',
       },
     ],
