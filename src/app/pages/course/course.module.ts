@@ -71,7 +71,7 @@ const routes = [
   })),
   ...tempCourseFrom5.map((component, index) => ({
     title: getTitleByRoute,
-    path: 'course/' + courseKeyList[index + 25],
+    path: 'course/' + courseKeyList[index + 24],
     component,
   })),
   { title: getTitleByRoute, path: 'course/:cid', component: CourseComponent },
