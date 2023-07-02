@@ -1,0 +1,57 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">
+        路由守卫
+      </p>
+      <p>
+        路由守卫一览：<button class="inline" libCheck="1"
+          (click)="openLink('https://angular.cn/api/router/Route#canActivate')">Route定义</button>
+      </p>
+      <div>
+        <ul>
+          <li>
+            <div>
+              <button class="inline" libCheck="2"
+                (click)="openLink('https://angular.cn/api/router/CanActivateFn')">canActivate/canActiveChildren</button>
+              <p>全部返回true，导航继续</p>
+              <p>任一返回false，导航取消</p>
+              <p>任一返回UrlTree，路由立刻导航向新的UrlTree，并放弃后续的路由守卫处理</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <button class="inline" libCheck="3"
+                (click)="openLink('https://angular.cn/api/router/CanMatchFn')">canMatch</button>
+              <p>全部返回true，导航继续</p>
+              <p>任一返回false，导航继续，但是跳过当前路由的匹配</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <button class="inline" libCheck="4"
+                (click)="openLink('https://angular.cn/api/router/CanDeactivateFn')">canDeactivate</button>
+              <p>全部返回true，导航继续</p>
+              <p>任一返回false，导航取消</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <button class="inline" libCheck="5"
+                (click)="openLink('https://angular.cn/api/router/ResolveFn')">resolve</button>
+              <p>和<code>Route.data</code>相似，提供了一个数据Map，不过data是预设的key-value，而resolve则是在运行时去计算出的value（预设key）。</p>
+              <p>
+                方法（<code>ResolveFn</code>）返回的数据将会被解包（<code>T|Promise&#123;T&#125;|Observable&#123;T&#125; => T</code>），放入Map之中。
+              </p>
+              <p>
+                获得数据的方式（同<code>Route.data</code>）：<br>
+                1.通过对<code>ActivatedRoute.data</code>进行订阅，每当路由完成时获得最新路由的<code>Data Map</code>。<br>
+                2.通过<code>ActivatedRoute.snap.data</code>，获得当前路由快照中的<code>Data Map</code>。
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</app-course>

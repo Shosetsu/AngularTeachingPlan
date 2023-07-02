@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { DirectivesModule } from '@directives/_directives.module';
-import { PipesModule } from '@pipes/_pipes.module';
 import { CommonModule } from '@angular/common';
-import { ComponentsModule } from '@components/_components.module';
-import { CourseComponent } from '@pages/course/course.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { courseKeyList, getTitleByRoute } from '@app/configs/util';
+import { ComponentsModule } from '@components/_components.module';
+import { DirectivesModule } from '@directives/_directives.module';
+import { CourseComponent } from '@pages/course/course.component';
+import { PipesModule } from '@pipes/_pipes.module';
 import { C00Component } from './c0/c00.component';
 import { C01Component } from './c0/c01.component';
 import { C02Component } from './c0/c02.component';
@@ -21,6 +21,10 @@ import { C20Component } from './c2/c20.component';
 import { C21Component } from './c2/c21.component';
 import { C22Component } from './c2/c22.component';
 import { C23Component } from './c2/c23.component';
+import { C30Component } from './c3/c30.component';
+import { C31Component } from './c3/c31.component';
+import { C32Component } from './c3/c32.component';
+import { C33Component } from './c3/c33.component';
 import { C50Component } from './c5/c50.component';
 import { C51Component } from './c5/c51.component';
 import { C52Component } from './c5/c52.component';
@@ -44,6 +48,10 @@ const courseComponents = [
   C21Component,
   C22Component,
   C23Component,
+  C30Component,
+  C31Component,
+  C32Component,
+  C33Component,
 ];
 
 const tempCourseFrom5 = [

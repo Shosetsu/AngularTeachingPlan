@@ -95,10 +95,6 @@ export const COURSE_LIST = [
       },
       {
         key: 'c3-3',
-        name: '设计子路由与懒惰加载模块',
-      },
-      {
-        key: 'c3-4',
         name: '设计路由守卫和解析器',
       },
     ],

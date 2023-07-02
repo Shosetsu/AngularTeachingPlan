@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { CourseDetailComponent } from '@pages/course/course-detail.component';
+import { BaseComponent } from '@pages/_base.component';
 
 @Component({
   selector: 'app-c02',
   templateUrl: './c02.component.html',
 })
-export class C02Component extends CourseDetailComponent {}
+export class C02Component extends BaseComponent {}

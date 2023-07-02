@@ -1,0 +1,89 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">
+        Angular路由器（Angular Router）
+      </p>
+      <p>
+        在单页应用(<code>SPA</code>)中，可以通过显示或隐藏与特定组件相对应的部分来更改用户看到的内容，而不是像传统网页交互那般，每次都需要向后端服务器获取新的页面内容。<br>
+        用户执行应用程序任务时，他们需要在定义好的不同视图之间移动。<br>
+        固然我们可以通过结构指令<code>ng if</code>来进行简单的画面显示内容控制，但这种做法并不足以满足所有实际使用情况。<br>
+        因此，要处理从一个视图到下一个视图的导航，在Angular中通常会使用<code>Angular Router</code>。<br>
+        在Angular应用启动的时候，Router会通过将浏览器URL得知当前应该显示的视图，并在其路由切换时将新的地址<code>path</code>写在浏览器URL中。<br>
+      </p>
+    </div>
+    <div>
+      <p class="title">导入Angular路由器</p>
+      <p>
+        由于Angular路由对Angular应用而言是可选的模块。<br>
+        因此若要使用Angular路由，应当事先在根模块（例：<code>app.module</code>）和当前懒惰加载模块（例：<code>xxx.module</code>）中导入<code>RouterModule</code>。<br>
+        通常由脚手架工具（Angular CLI）生成的模块里，路由会被单独安排在一个特殊命名的文件(例：<code>app-routing.module</code>)之中。<br>
+        通过该模块中转一遭之后再将其中的<code>RouterModule</code>导出，供模块本身(例：<code>app.module</code>)二次导入。
+      </p>
+      <p class="detail">
+        要注意，在根模块中导入路由模块时，通过路由模块提供的静态方法(<code>forRoot</code>)来做路由模块的设定，而在懒惰加载模块中则使用<code>forChild</code>静态方法来进行初始化。
+      </p>
+    </div>
+    <div>
+      <p class="title">注入Angular路由器</p>
+      <p>
+        通常我们可以通过注入令牌<code>Router(class)</code>获取Angular路由的全局单例。<br>
+        下面是一些常见用法
+      </p>
+      <p class="detail">
+        在构造器中注入路由（声明式）<app-code-sample class="s">constructor(private router:Router)&#123;&#125;</app-code-sample><br>
+        在构造阶段中注入路由（函数式）<app-code-sample class="s">private router = inject(Router)</app-code-sample><br>
+        ※注意，<code>inject</code>函数只能在构造器或构造阶段（成员变量的赋值）中使用。
+      </p>
+    </div>
+    <div>
+      <p class="title">使用Angular路由器</p>
+      <p>
+        通过依赖注入（DI）获取到的路由对象，使用它提供的
+        <button class="inline" libCheck="1"
+          (click)="openLink('https://angular.cn/api/router/Router#instance-methods')">静态方法</button>，可以实现对路由的操作。
+      </p>
+      <p>
+        也可以在模板(HTML)上使用<button class="inline" libCheck="2"
+          (click)="openLink('https://angular.cn/api/router/RouterLink')">RouterLink</button>指令来为某个元素一次性绑定对应的路由切换事件。
+      </p>
+    </div>
+    <div>
+      <p class="title">Angular路由的一些官方综述</p>
+      <p>
+        <button class="inline" (click)="openLink('https://angular.cn/guide/router-reference#router-terminology')">官方文档 -
+          路由器术语</button>
+      </p>
+      <div>
+        <p>归类1 - 可DI的类型令牌（服务）</p>
+        <ul>
+          <li><code>Router</code> 路由器对象</li>
+          <li><code>ActivatedRoute</code> 当前的路由对象</li>
+        </ul>
+        <p>归类2 - 导入/导出模块</p>
+        <ul>
+          <li><code>RouterModule</code> 路由器模块</li>
+        </ul>
+        <p>归类3 - 数据类型</p>
+        <ul>
+          <li><code>Routes</code> 路由表</li>
+          <li><code>Route</code> 路由配置</li>
+          <li><code>RouterState</code> 当前路由树结构（只是类型，不是DI令牌）</li>
+          <li><code>ActivatedRouteSnapshot</code> 当前路由对象快照（只是类型，不是DI令牌，可以通过<code>ActivatedRoute.snap</code>获取）</li>
+        </ul>
+        <p>归类4 - 指令</p>
+        <ul>
+          <li><code>RouterOutlet</code> 路由出口</li>
+          <li><code>RouterLink</code> 简易路由链接</li>
+          <li><code>RouterLinkActive</code> 对上面<code>RouterLink</code>指令<code>isActive()</code>的结果进行相应处理的指令</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <p class="title">路由策略小知识</p>
+      <button class="inline"
+        (click)="openLink('https://angular.cn/guide/router#locationstrategy-and-browser-url-styles')">官方文档 -
+        路由策略</button>
+    </div>
+  </div>
+</app-course>

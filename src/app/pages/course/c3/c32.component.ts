@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { BaseComponent } from '@pages/_base.component';
 
 @Component({
-  selector: 'app-c03',
-  templateUrl: './c03.component.html',
+  selector: 'app-c32',
+  templateUrl: './c32.component.html',
 })
-export class C03Component extends BaseComponent {}
+export class C32Component extends BaseComponent {}
