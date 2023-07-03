@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { COURSE_LIST } from '@app/configs/constants';
 import { CourseService } from '@app/shared/course.service';
 import { getCurrentKey } from '@app/configs/util';
@@ -12,6 +18,8 @@ import { BaseComponent } from '@pages/_base.component';
 export class MenuComponent extends BaseComponent implements AfterViewInit {
   @ViewChild('menu') menu!: ElementRef<HTMLDivElement>;
 
+  private courseService = inject(CourseService);
+
   courseList = COURSE_LIST;
 
   get focusKey() {
@@ -19,10 +27,6 @@ export class MenuComponent extends BaseComponent implements AfterViewInit {
   }
 
   isCompleted = (key: string) => this.courseService.isCompleted(key);
-
-  constructor(private courseService: CourseService) {
-    super();
-  }
 
   getProcessNumber(course: (typeof COURSE_LIST)[0]): number {
     return course.detail.filter((de) => this.courseService.isCompleted(de.key))

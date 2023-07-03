@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Route, RouterModule, Routes } from '@angular/router';
 import { courseKeyList, getTitleByRoute } from '@app/configs/util';
 import { ComponentsModule } from '@components/_components.module';
 import { DirectivesModule } from '@directives/_directives.module';
@@ -63,13 +63,13 @@ const tempCourseFrom5 = [
   C55Component,
 ];
 
-const routes = [
-  ...courseComponents.map((component, index) => ({
+const routes: Routes = [
+  ...courseComponents.map<Route>((component, index) => ({
     title: getTitleByRoute,
     path: 'course/' + courseKeyList[index],
     component,
   })),
-  ...tempCourseFrom5.map((component, index) => ({
+  ...tempCourseFrom5.map<Route>((component, index) => ({
     title: getTitleByRoute,
     path: 'course/' + courseKeyList[index + 24],
     component,

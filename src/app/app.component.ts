@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +27,11 @@ export class AppComponent {
         }
         // 结束导航时解除屏幕锁定
         case event instanceof NavigationEnd: {
+          this.isLoader = false;
+          break;
+        }
+        // 结束导航时解除屏幕锁定
+        case event instanceof NavigationCancel: {
           this.isLoader = false;
           break;
         }
