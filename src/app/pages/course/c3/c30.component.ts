@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterState } from '@angular/router';
+import { Router } from '@angular/router';
 import { BaseComponent } from '@pages/_base.component';
 
 @Component({

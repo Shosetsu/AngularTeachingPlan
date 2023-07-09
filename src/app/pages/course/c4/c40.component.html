@@ -1,0 +1,60 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">Angular中的服务</p>
+      <p>
+        服务（Service）是一个很宽泛的类别，它包含应用程序需要的任何值、功能或特性。服务通常是具有狭窄、明确定义的目标的类。组件是一种可以使用<code>DI</code>的类。<br>
+        Angular将组件与服务区分开来，是为了提高模块化程度和可复用性。通过将组件中与视图相关的特性与其他类型的处理分离开，可以让你的组件类更加精简高效。<br>
+        理想情况下，组件的工作就是提供用户体验，并无其它职责。组件应该表达用于数据绑定的属性和方法，以在视图（由模板渲染）和应用逻辑（通常包括某个模型的一些概念）之间进行居中协调。<br>
+        组件可以将某些任务委托给服务，例如从服务器获取数据、验证用户输入或直接把日志记录到控制台。通过在可注入服务类中定义这样的处理任务，你可以让这些任务可用于任何组件。你还可以通过在不同的情况下注入同一个服务的不同提供者来让你的应用程序适应更多场景。<br>
+        Angular不会强制执行这些原则。Angular只是让你可以轻松地将应用逻辑分解为服务，并通过<code>DI</code>让这些服务可用在组件中，从而帮助你遵循这些原则。<br>
+      </p>
+    </div>
+    <div>
+      <p class="title">创建一个简单服务</p>
+      <p>
+        参考<button class="inline" (click)="openLink('/inline/course/c0-2')">第一节课</button>中对Angular
+        CLI的介绍，可以通过下列命令借由Angular CLI来创建一个基础服务。<br>
+        <app-code-sample class="s">ng g s sample</app-code-sample>
+      </p>
+    </div>
+    <div>
+      <p class="title">了解依赖性注入（DI）</p>
+      <p>
+        当在开发一个系统中某个较小部件时（例如模块或类），有可能会需要使用来自其他类的特性。<br>
+        依赖性注入是一种设计模式和机制，用于创建应用程序的某些部分并将其传递到需要它们的应用程序的其他部分。<br>
+        Angular支持这种设计模式，你可以在应用程序中使用它来提高灵活性和模块化程度。<br>
+        在Angular中，依赖项通常是服务，但它们也可以是值，例如字符串或函数。<br>
+        应用程序的注入器（在引导期间自动创建）会在需要时使用已配置的服务或值的提供者来实例化依赖项。<br>
+        这有些类似于Spring Boot中的 <code>@autowired</code>。
+      </p>
+      <p>
+        参考官方文档：<button libCheck="1" (click)="openLink('https://angular.cn/guide/dependency-injection')">了解依赖注入</button>
+      </p>
+    </div>
+    <div>
+      <p class="title">配置依赖注入的提供者（Provider）</p>
+      <p>
+        <button class="inline" libCheck="2"
+          (click)="openLink('https://angular.cn/guide/dependency-injection-providers')">配置依赖提供者</button>
+      </p>
+    </div>
+    <div>
+      <p class="title">使用依赖注入的对象</p>
+      <p>
+        被依赖注入的对象，总是在作用域范围内呈现单例状态。因此在作用域的任何地方，获取到的依赖注入对象都总是指向同一个内存地址。<br>
+        通常可以通过以下几种方式使用 <button class="inline" libCheck="3"
+          (click)="openLink('https://angular.cn/api/core/InjectionToken')">DI 提供者的令牌</button> 来实现对象的获取。<br>
+        在作用域内的组件类、指令类中使用构造器参数的方式来获取被注入对象。<br>
+        在作用域内的组件类、指令类以及在初始化阶段的函数中使用<code>inject</code>函数的方式来获取被注入对象。<br>
+        <button class="inline" libCheck="3" (click)="openLink('/inline/course/c3-0')">注入例子</button>
+      </p>
+    </div>
+    <div>
+      <p class="title">小知识</p>
+      <p>通过合理的上层设计，可以让Angular服务的设计更加有层次和效率，以及便于维护。参考：<button
+          (click)="openLink('https://angular.cn/guide/hierarchical-dependency-injection')">官方文档 - 多级注入器</button>
+      </p>
+    </div>
+  </div>
+</app-course>

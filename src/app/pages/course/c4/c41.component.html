@@ -1,0 +1,30 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">Angular中的网络请求</p>
+      <p>
+        在Angular中通常会使用JavaScript原生的<code>fetch</code>方法或Angular支持的<code>HttpClient</code>。
+      </p>
+      <p>
+        对于前者，可以直接使用<code>fetch(...)</code>的方式来使用。
+        <button libCheck="1"
+          (click)="openLink('https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API',true)">Fetch
+          API</button><br>
+        它的返回值同样也是一个原生的Promise对象。<br>
+        <app-code-sample class="s">await (await fetch("/index.html")).text()</app-code-sample><br>
+      </p>
+      <p>
+        而后者则是由Angular提供的一个更加复杂而又便利的使用方式。（也是在大型项目中比较普遍的做法）
+        <button libCheck="2" (click)="openLink('https://angular.cn/guide/http-server-communication')">HTTP
+          服务器通信</button><br>
+        它的返回值则是RxJs的Observable对象。
+      </p>
+      <p class="detail">
+        作为一个Observable对象，是存在订阅后有多值的可能性的，而Angular对此的拓展也意在此处。<br>
+        虽然Http请求是一次性的，返回值永远最多只会有一个，但通过在参数中配置，可监测整个网络请求过程中的所有（或任意筛选）的事件。<br>
+        官方例子：<button libCheck="3" (click)="openLink('https://angular.cn/guide/http-track-show-request-progress')">HTTP -
+          跟踪和显示请求进度</button>
+      </p>
+    </div>
+  </div>
+</app-course>

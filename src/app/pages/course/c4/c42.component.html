@@ -1,0 +1,36 @@
+<app-course>
+  <div libThrough>
+    <div>
+      <p class="title">在Angular中使用网络请求代理（Proxy）</p>
+      <p>
+        <button libCheck="1" class="inline"
+          (click)="openLink('https://angular.cn/guide/build#proxying-to-a-backend-server')">代理到后端服务器</button>
+      </p>
+    </div>
+    <div>
+      <p class="title">在Angular中使用网络请求拦截器</p>
+      <p>
+        <button libCheck="2" class="inline"
+          (click)="openLink('https://angular.cn/guide/http-interceptor-use-cases')">HTTP 拦截器用例</button><br>
+        <button libCheck="2" class="inline"
+          (click)="openLink('https://angular.cn/guide/http-intercept-requests-and-responses')">HTTP -
+          拦截请求和响应</button><br>
+      </p>
+    </div>
+    <div>
+      <p class="title">使用拦截器的关键点</p>
+      <p>
+        通过Angular CLI创建拦截器：<br>
+        基于类实现的依赖注入类 ：<app-code-sample class="s">ng g interceptor sample1</app-code-sample><br>
+        基于符合特定类型的模块函数： <app-code-sample class="s">ng g interceptor sample2 --functional</app-code-sample><br>
+      </p>
+      <p>
+        使用拦截器：<br>
+        基于类实现：在模块中对多重提供者令牌（DI Token）<br>
+        <app-code-sample>&#123; provide: HTTP_INTERCEPTORS, useClass: SampleInterceptor, multi: true &#125;,</app-code-sample><br><br>
+        基于函数<code>HttpInterceptorFn</code>： 通过<code>@angular/common/http</code>提供的抽象函数来封装<br>
+        <app-code-sample>provideHttpClient(withInterceptors([sampleInterceptor]))</app-code-sample>
+      </p>
+    </div>
+  </div>
+</app-course>

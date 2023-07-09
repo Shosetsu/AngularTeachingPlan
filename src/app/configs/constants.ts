@@ -109,18 +109,10 @@ export const COURSE_LIST = [
       },
       {
         key: 'c4-1',
-        name: '依赖性注入概念和使用',
+        name: 'Angular中的HTTP通信',
       },
       {
         key: 'c4-2',
-        name: '创建和使用服务',
-      },
-      {
-        key: 'c4-3',
-        name: 'HTTP通信的设计',
-      },
-      {
-        key: 'c4-4',
         name: '如何使用拦截器和代理',
       },
     ],
